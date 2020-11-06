@@ -21,7 +21,7 @@ jobs:
      # Runs a set of commands using the runners shell
       - name: Run a multi-line script
         run: |
-          alias=j$(q .alias setup-parameters.json -r)
+          alias=$(jq .alias setup-parameters.json -r)
           echo "alias=$alias"
           
            # Runs a set of commands using the runners shell
