@@ -31,7 +31,7 @@ jobs:
             res=$(curl -u $GH_USER:$SECRET_SECRET  -X GET   -H "Accept: application/vnd.github.v3+json"   https://api.github.com/repos/nikkh/zodiac/actions/secrets/public-key)
             repo_public_key=$(echo $res | jq .key -r)
             echo "REPO_PUBLIC_KEY=$repo_public_key"
-            echo "::set-output repo_public_key::$repo_public_key"
+            echo "::set-output name=repo_public_key::$repo_public_key"
 
   job3:
     name: Store Secret
