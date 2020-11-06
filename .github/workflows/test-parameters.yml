@@ -33,7 +33,7 @@ jobs:
       - run: |
           node -v
           npm -v
-          npm init
+          npm init -y
           npm install tweetsodium
           node encrypt_secret.js 'blah'
           
