@@ -63,4 +63,5 @@ jobs:
     steps:
        - run: |
            curl_body=$(jq -n --arg key_id "${{needs.job2.outputs.repo_public_key_id}}" --arg encrypted_value "${{needs.job3.outputs.encrypted_secret}}" '{encrypted_value: $encrypted_value, key_id: $key_id}')
+           echo $curl_body
            curl -u $HERACLES_USER:$HERACLES_PAT  -X PUT   -H "Accept: application/vnd.github.v3+json"   https://api.github.com/repos/nikkh/zodiac/actions/secrets/TEST_SECRET_NAME   -d $curl_body
