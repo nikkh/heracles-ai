@@ -16,7 +16,7 @@ jobs:
     - id: step1
       run: |
             alias=$(jq .alias setup-parameters.json -r)
-            echo "::set-output name=alias::$alias
+            echo "::set-output name=alias::$alias"
   job2:
     name: Store Secret
     runs-on: ubuntu-latest
