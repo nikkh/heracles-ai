@@ -28,3 +28,21 @@ jobs:
            
       - name: Run a single-line script 2
         run: echo "alias=$alias"
+        id: jobs:
+  job1:
+    runs-on: ubuntu-latest
+    # Map a step output to a job output
+    outputs:
+      alias: ${{ steps.step1.outputs.alias }}
+      
+    steps:
+    - id: step1
+      run: |
+            alias=$(jq .alias setup-parameters.json -r)
+            echo "alias=$alias"
+            echo "::set-output name=alias::$alias"
+  job2:
+    runs-on: ubuntu-latest
+    needs: job1
+    steps:
+    - run: echo ${{needs.job1.outputs.alias}}
