@@ -1,3 +1,6 @@
+process.argv.forEach(function (val, index, array) {
+  console.log(index + ': ' + val);
+});
 const sodium = require('tweetsodium')
 const value = "plain-text-secret"
 const key = "OvpKIvDS+cccMJmLxDk49g5KDGyYaXy9zndDK1zzzWY=";
