@@ -35,5 +35,5 @@ jobs:
           npm -v
           npm init -y
           npm install tweetsodium
-          node encrypt_secret.js 'blah'
+          result=$(node encrypt_secret.js ${{needs.job1.outputs.alias}})
           
