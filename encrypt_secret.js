@@ -1,6 +1,5 @@
-process.argv.forEach(function (val, index, array) {
-  console.log(index + ': ' + val);
-});
+var myArgs = process.argv.slice(2);
+console.log('hopefully the passed in parameter was ' + myArgs[0]);
 const sodium = require('tweetsodium')
 const value = "plain-text-secret"
 const key = "OvpKIvDS+cccMJmLxDk49g5KDGyYaXy9zndDK1zzzWY=";
