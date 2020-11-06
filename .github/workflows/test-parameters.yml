@@ -9,6 +9,7 @@ on: [workflow_dispatch]
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
   job1:
+    name: Parse Global Parameters
     runs-on: ubuntu-latest
     outputs:
       alias: ${{ steps.step1.outputs.alias }}
@@ -17,10 +18,19 @@ jobs:
     - id: step1
       run: |
             alias=$(jq .alias setup-parameters.json -r)
-            echo "alias=$alias"
             echo "::set-output name=alias::$alias"
   job2:
+    name: Echo Parsed Parameter
     runs-on: ubuntu-latest
     needs: job1
     steps:
     - run: echo ${{needs.job1.outputs.alias}}
+  
+  job3:
+    name: Store Secret
+    runs-on: ubuntu-latest
+    needs: job1
+    steps:
+      - run: |
+          node -v
+          npm -v
