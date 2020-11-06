@@ -4,6 +4,7 @@ name: test-parameters
 # events but only for the main branch
 on: [workflow_dispatch]
 env:
+   GH_USER: ${{ secrets.GH_USER }} 
    SECRET_SECRET: ${{ secrets.SECRET_SECRET }}
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
@@ -25,7 +26,9 @@ jobs:
     - uses: actions/checkout@v2
     - id: step1
       run: |
-            curl -u nick@nikkh.net:$SECRET_SECRET  -X GET   -H "Accept: application/vnd.github.v3+json"   https://api.github.com/repos/nikkh/zodiac/actions/secrets/public-key
+            res=$(curl -u $GH_USER:$SECRET_SECRET  -X GET   -H "Accept: application/vnd.github.v3+json"   https://api.github.com/repos/nikkh/zodiac/actions/secrets/public-key)
+            repo_public_key=$(echo $res | jq .key -r)
+            echo "REPO_PUBLIC_KEY=$repo_public_key"
   job3:
     name: Store Secret
     runs-on: ubuntu-latest
