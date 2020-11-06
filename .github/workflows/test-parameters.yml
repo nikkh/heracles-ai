@@ -29,9 +29,11 @@ jobs:
     runs-on: ubuntu-latest
     needs: job1
     steps:
+      - uses: actions/checkout@v2
       - run: |
           node -v
           npm -v
+          npm init
           npm install tweetsodium
           node encrypt_secret.js 'blah'
           
