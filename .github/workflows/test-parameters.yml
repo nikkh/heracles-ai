@@ -44,6 +44,7 @@ jobs:
       encrypted_secret: ${{ steps.step1.outputs.encrypted_secret }}
     needs: [job1, job2]
     steps:
+      - uses: actions/checkout@v2
       - id: step1
       - run: |
           node -v
@@ -60,6 +61,7 @@ jobs:
     runs-on: ubuntu-latest
     needs: [job2, job3]
     steps:
+      - uses: actions/checkout@v2
       - run: |
            curl_body=$(jq -n --arg key_id "${{needs.job2.outputs.repo_public_key_id}}" --arg encrypted_value "${{needs.job3.outputs.encrypted_secret}}" '{encrypted_value: $encrypted_value, key_id: $key_id}')
            curl -u $HERACLES_USER:$HERACLES_PAT  -X PUT   -H "Accept: application/vnd.github.v3+json"   https://api.github.com/repos/nikkh/zodiac/actions/secrets/TEST_SECRET_NAME   -d $curl_body
