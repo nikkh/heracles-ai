@@ -74,7 +74,7 @@ jobs:
           #!/bin/sh -e
           npm init -y
           npm install tweetsodium
-          encrypted_value=$(node encrypt_secret.js "${{needs.job1.outputs.acr_password}}" "$repo_public_key")
+          encrypted_value=$(node deployment-scripts/encrypt_secret.js "${{needs.job1.outputs.acr_password}}" "$repo_public_key")
           echo "encrypted_value=$encrypted_value" >> $GITHUB_ENV
           
     - id: step3
