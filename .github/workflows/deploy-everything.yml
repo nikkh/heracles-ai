@@ -50,6 +50,7 @@ jobs:
     - id: step3
       name: Store Secret
       run: |
+           #!/bin/sh -e
            curl_body=$(jq -n --arg key_id "$repo_public_key_id" --arg encrypted_value "$encrypted_value" '{encrypted_value: $encrypted_value, key_id: $key_id}')
            echo "CURL_BODY=$curl_body"
            curl --location --request PUT "https://api.github.com/repos/$GITHUB_REPOSITORY/actions/secrets/ACR_PASSWORD" \
