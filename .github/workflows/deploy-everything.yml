@@ -28,6 +28,7 @@ jobs:
     - id: step1
       name: Get Repo public key
       run: |
+            #!/bin/sh -e
             res=$(curl --location --request GET "https://api.github.com/repos/$GITHUB_REPOSITORY/actions/secrets/public-key" \
                --header "Authorization: Bearer $HERACLES_PAT" \
                --header 'Cookie: logged_in=no; _octo=GH1.1.1387838137.1581271944')
@@ -36,18 +37,17 @@ jobs:
             echo "REPO_PUBLIC_KEY=$repo_public_key"
             echo "REPO_PUBLIC_KEY_ID=$repo_public_key_id"
             echo "::set-env name=repo_public_key::$repo_public_key"
+            echo "::set-env name=repo_public_key_id::$repo_public_key_id"
 
     - id: step2
       name: Encrypt Secret
       run: |
-          echo "--------------------------------->repo_public_key::$repo_public_key"
-          node -v
-          npm -v
+          #!/bin/sh -e
           npm init -y
           npm install tweetsodium
           encrypted_value=$(node encrypt_secret.js ${{needs.job1.outputs.acr_password}} $repo_public_key)
           echo "encrypted acr_password=$encrypted_value"
-
+          echo "::set-env name=encrypted_value::$encrypted_value"
     - id: step3
       name: Store Secret
       run: |
