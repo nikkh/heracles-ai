@@ -71,6 +71,7 @@ jobs:
    
       - name: Run Deployment Scripts
         run: |
+                ls
                 chmod +x .deployment-scripts/deploy_infrastructure.sh
                 chmod +x .deployment-scripts/deploy_chania.sh
                 chmod +x .deployment-scripts/deploy_thessaloniki.sh
