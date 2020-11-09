@@ -51,44 +51,6 @@ jobs:
             alias=$(jq .alias setup-parameters.json -r)
             echo "::set-output name=alias::$alias"
             echo "::set-output name=acr_password::$acr_password"
-             job2:
-    name: Update ACR_PASSWORD secret
-    runs-on: ubuntu-latest
-    needs: [job1]
-    steps:
-    - uses: actions/checkout@v2
-    - id: step1
-      name: Get Repo public key
-      run: |
-            #!/bin/sh -e
-            res=$(curl --location --request GET "https://api.github.com/repos/$GITHUB_REPOSITORY/actions/secrets/public-key" \
-               --header "Authorization: Bearer $HERACLES_PAT" \
-               --header 'Cookie: logged_in=no; _octo=GH1.1.1387838137.1581271944')
-            repo_public_key=$(echo $res | jq .key -r)
-            repo_public_key_id=$(echo $res | jq .key_id -r)
-            echo "repo_public_key=$repo_public_key" >> $GITHUB_ENV
-            echo "repo_public_key_id=$repo_public_key_id" >> $GITHUB_ENV
-
-    - id: step2
-      name: Encrypt Secret
-      run: |
-          #!/bin/sh -e
-          npm init -y
-          npm install tweetsodium
-          encrypted_value=$(node deployment-scripts/encrypt_secret.js "${{needs.job1.outputs.acr_password}}" "$repo_public_key")
-          echo "encrypted_value=$encrypted_value" >> $GITHUB_ENV
-          
-    - id: step3
-      name: Store Secret
-      run: |
-           #!/bin/sh -e
-           curl_body=$(jq -n --arg key_id "$repo_public_key_id" --arg encrypted_value "$encrypted_value" '{encrypted_value: $encrypted_value, key_id: $key_id}')
-           echo "CURL_BODY=$curl_body"
-           curl --location --request PUT "https://api.github.com/repos/$GITHUB_REPOSITORY/actions/secrets/ACR_PASSWORD" \
-            --header "Authorization: Bearer $HERACLES_PAT" \
-            --header 'Content-Type: application/json' \
-            --header 'Cookie: logged_in=no; _octo=GH1.1.1387838137.1581271944' \
-            --data-raw "$curl_body"
   job2:
     name: Create Heracles Infrastructure
     runs-on: ubuntu-latest
@@ -118,8 +80,6 @@ jobs:
                 chmod +x deployment_scripts/deploy_ioannina.sh
                 chmod +x deployment_scripts/deploy_heracles.sh
                 deployment_scripts/deploy_infrastructure.sh
-     
-
   job3:
     name: Update ACR_PASSWORD secret
     runs-on: ubuntu-latest
