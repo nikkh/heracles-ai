@@ -42,7 +42,7 @@ jobs:
           npm -v
           npm init -y
           npm install tweetsodium
-          echo "repo_public_key=$repo_public_key"
+          echo "----------------------------------->repo_public_key=${{step1.repo_public_key}}"
           encrypted_value=$(node encrypt_secret.js ${{needs.job1.outputs.acr_password}} $repo_public_key)
           echo "encrypted acr_password=$encrypted_value"
 
