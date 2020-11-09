@@ -8,12 +8,12 @@ resourcesLink="https://portal.azure.com/#blade/HubsExtension/BrowseResourcesWith
 echo '<a href="'$resourcesLink'">Click here to access your azure resources</a>' >> $output_blob
 echo '<p></p>' >>$output_blob
 
-deployment_scripts/deploy_chania.sh
-deployment_scripts/deploy_thessaloniki.sh
-deployment_scripts/deploy_iraklion.sh
-deployment_scripts/deploy_patra.sh
-deployment_scripts/deploy_ioannina.sh
-deployment_scripts/deploy_heracles.sh
+deployment-scripts/deploy_chania.sh
+deployment-scripts/deploy_thessaloniki.sh
+deployment-scripts/deploy_iraklion.sh
+deployment-scripts/deploy_patra.sh
+deployment-scripts/deploy_ioannina.sh
+deployment-scripts/deploy_heracles.sh
 echo '</body></html>' >> $output_blob
 
 # Upload the deployment log to the zodiac storage account 
