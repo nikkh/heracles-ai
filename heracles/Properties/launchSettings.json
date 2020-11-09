@@ -1,0 +1,13 @@
+{
+  "profiles": {
+    "Heracles": {
+      "commandName": "Project"
+    },
+    "Docker": {
+      "commandName": "Docker",
+      "launchUrl": "{Scheme}://{ServiceHost}:{ServicePort}",
+      "httpPort": 34725,
+      "useSSL": false
+    }
+  }
+}

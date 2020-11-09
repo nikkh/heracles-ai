@@ -1,0 +1,13 @@
+{
+  "MonitoringContext": {
+    "MonitoringContainerName": "slot-monitor-files",
+    "RequestHeaderFileName": "reqhdr.txt",
+    "RequestBodyFileName": "reqbdy.json",
+    "NotifyUnavailability": "false"
+  },
+  "HeraclesContext": {
+    "NumberOfCallsPerInvocation": 88,
+    "NumberOfUserJourneys": 5,
+    "BaseUrl": "https://sirmione-web.azurewebsites.net/home/"
+  }
+}

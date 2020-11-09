@@ -1,0 +1,9 @@
+﻿################################################################################
+# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
+################################################################################
+
+/Application/Chania/.vs/Chania
+/Application/Chania/bin/Debug/netcoreapp3.1
+/Application/Chania/obj
+/Application/aspnet-core-dotnet-core
+/.vs
