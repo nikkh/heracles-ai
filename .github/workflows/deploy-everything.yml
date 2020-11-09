@@ -35,8 +35,6 @@ jobs:
                --header 'Cookie: logged_in=no; _octo=GH1.1.1387838137.1581271944')
             repo_public_key=$(echo $res | jq .key -r)
             repo_public_key_id=$(echo $res | jq .key_id -r)
-            echo "step1: REPO_PUBLIC_KEY=$repo_public_key"
-            echo "step1: REPO_PUBLIC_KEY_ID=$repo_public_key_id"
             echo "repo_public_key=$repo_public_key" >> $GITHUB_ENV
             echo "repo_public_key_id=$repo_public_key_id" >> $GITHUB_ENV
 
@@ -44,21 +42,14 @@ jobs:
       name: Encrypt Secret
       run: |
           #!/bin/sh -e
-          echo "step2.1: repo_public_key=$repo_public_key" 
-          echo "step2.1: repo_public_key_id=$repo_public_key_id"
-          pub_key=$repo_public_key
           npm init -y
           npm install tweetsodium
-          echo "step2.2: repo_public_key=$repo_public_key" 
-          echo "step2.2: repo_public_key_id=$repo_public_key_id"
-          echo "step2.2: pub_key_id=$pub_key"
-          encrypted_value=$(node encrypt_secret.js ${{needs.job1.outputs.acr_password}} $pub_key)
-          echo "step2: encrypted_value=$encrypted_value" 
+          encrypted_value=$(node encrypt_secret.js ${{needs.job1.outputs.acr_password}} $repo_public_key)
           echo "encrypted_value=$encrypted_value" >> $GITHUB_ENV
+          
     - id: step3
       name: Store Secret
       run: |
-           echo "step3: encrypted_value=$encrypted_value" >> $GITHUB_ENV
            curl_body=$(jq -n --arg key_id "$repo_public_key_id" --arg encrypted_value "$encrypted_value" '{encrypted_value: $encrypted_value, key_id: $key_id}')
            echo "CURL_BODY=$curl_body"
            curl --location --request PUT "https://api.github.com/repos/$GITHUB_REPOSITORY/actions/secrets/ACR_PASSWORD" \
