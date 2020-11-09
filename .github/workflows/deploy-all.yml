@@ -17,21 +17,21 @@ inputs:
 env:
    HERACLES_PAT: ${{ secrets.HERACLES_PAT }}
    DB_ADMIN_PASSWORD: ${{ secrets.DB_ADMIN_PASSWORD }}
-   DB_ADMIN_USER=nick
-   AAD_DOMAIN=xekina.onmicrosoft.com
-   AAD_TENANTID=3bc03625-3a0a-48c5-8aa5-12f22e401fff
-   AAD_CLIENTID=ccee7608-940c-42d9-ba86-a2845ef3a808
+   DB_ADMIN_USER:nick
+   AAD_DOMAIN:xekina.onmicrosoft.com
+   AAD_TENANTID:3bc03625-3a0a-48c5-8aa5-12f22e401fff
+   AAD_CLIENTID:ccee7608-940c-42d9-ba86-a2845ef3a808
    
-   HERACLES_LOCATION=${{ github.event.inputs.location }}
-   HERACLES_INSTANCE=${{ github.event.inputs.instance }}
-   OUTPUT_LOG_NAME="deployment-log.html"
+   HERACLES_LOCATION:${{ github.event.inputs.location }}
+   HERACLES_INSTANCE:${{ github.event.inputs.instance }}
+   OUTPUT_LOG_NAME:"deployment-log.html"
 
-   HERACLES_ALIAS=${{ github.event.inputs.alias }}heracles
-   CHANIA_ALIAS=${{ github.event.inputs.alias }}chania
-   IOANNINA_ALIAS=${{ github.event.inputs.alias }}ioannina
-   PATRA_ALIAS=${{ github.event.inputs.alias }}patra
-   IRAKLION_ALIAS=${{ github.event.inputs.alias }}iraklion
-   THESSALONIKI_ALIAS=${{ github.event.inputs.alias }}thessaloniki
+   HERACLES_ALIAS:${{ github.event.inputs.alias }}heracles
+   CHANIA_ALIAS:${{ github.event.inputs.alias }}chania
+   IOANNINA_ALIAS:${{ github.event.inputs.alias }}ioannina
+   PATRA_ALIAS:${{ github.event.inputs.alias }}patra
+   IRAKLION_ALIAS:${{ github.event.inputs.alias }}iraklion
+   THESSALONIKI_ALIAS:${{ github.event.inputs.alias }}thessaloniki
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
