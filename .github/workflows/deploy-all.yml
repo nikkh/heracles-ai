@@ -1,7 +1,8 @@
 name: Deploy Everything
 
-on: [workflow_dispatch]
-inputs:
+on: 
+  workflow_dispatch:
+    inputs:
       alias:
         description: 'Application alias'     
         required: true
