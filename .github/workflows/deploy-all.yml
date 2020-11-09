@@ -71,14 +71,14 @@ jobs:
    
       - name: Run Deployment Scripts
         run: |
-                chmod +x .deployment_scripts/deploy_infrastructure.sh
-                chmod +x .deployment_scripts/deploy_chania.sh
-                chmod +x .deployment_scripts/deploy_thessaloniki.sh
-                chmod +x .deployment_scripts/deploy_iraklion.sh
-                chmod +x .deployment_scripts/deploy_patra.sh
-                chmod +x .deployment_scripts/deploy_ioannina.sh
-                chmod +x .deployment_scripts/deploy_heracles.sh
-                .deployment_scripts/deploy_infrastructure.sh
+                chmod +x .deployment-scripts/deploy_infrastructure.sh
+                chmod +x .deployment-scripts/deploy_chania.sh
+                chmod +x .deployment-scripts/deploy_thessaloniki.sh
+                chmod +x .deployment-scripts/deploy_iraklion.sh
+                chmod +x .deployment-scripts/deploy_patra.sh
+                chmod +x .deployment-scripts/deploy_ioannina.sh
+                chmod +x .deployment-scripts/deploy_heracles.sh
+                .deployment_scripts/deploy-infrastructure.sh
   job3:
     name: Update ACR_PASSWORD secret
     runs-on: ubuntu-latest
