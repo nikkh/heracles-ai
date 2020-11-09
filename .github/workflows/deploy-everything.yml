@@ -35,14 +35,16 @@ jobs:
             repo_public_key_id=$(echo $res | jq .key_id -r)
             echo "REPO_PUBLIC_KEY=$repo_public_key"
             echo "REPO_PUBLIC_KEY_ID=$repo_public_key_id"
+            echo "::set-env name=repo_public_key::$repo_public_key"
+
     - id: step2
       name: Encrypt Secret
       run: |
+          echo "--------------------------------->repo_public_key::$repo_public_key"
           node -v
           npm -v
           npm init -y
           npm install tweetsodium
-          echo "----------------------------------->repo_public_key=${{step1.repo_public_key}}"
           encrypted_value=$(node encrypt_secret.js ${{needs.job1.outputs.acr_password}} $repo_public_key)
           echo "encrypted acr_password=$encrypted_value"
 
