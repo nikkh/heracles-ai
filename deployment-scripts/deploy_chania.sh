@@ -27,7 +27,7 @@ dbServerName="${applicationName}-db-server"
 dbName="${applicationName}-web-db"
 resourceGroupName="${applicationName}-rg"
 iraklionBaseUrl="https://${IRAKLION_ALIAS}-api.azurewebsites.net/"
-$thessalonikiBaseUrl="https://${THESSALONIKI_ALIAS}-api.azurewebsites.net/"
+thessalonikiBaseUrl="https://${THESSALONIKI_ALIAS}-api.azurewebsites.net/"
 
 echo ---Derived Variables
 echo "Application Name: $applicationName"
