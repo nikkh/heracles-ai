@@ -6,6 +6,14 @@ MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{7D7B9BAE-B55C-4388-99A1-1A925F0414DF}"
 	ProjectSection(SolutionItems) = preProject
 		.github\workflows\deploy-all.yml = .github\workflows\deploy-all.yml
+		deployment-scripts\deploy_chania.sh = deployment-scripts\deploy_chania.sh
+		deployment-scripts\deploy_heracles.sh = deployment-scripts\deploy_heracles.sh
+		deployment-scripts\deploy_infrastructure.sh = deployment-scripts\deploy_infrastructure.sh
+		deployment-scripts\deploy_ioannina.sh = deployment-scripts\deploy_ioannina.sh
+		deployment-scripts\deploy_iraklion.sh = deployment-scripts\deploy_iraklion.sh
+		deployment-scripts\deploy_patra.sh = deployment-scripts\deploy_patra.sh
+		deployment-scripts\deploy_thessaloniki.sh = deployment-scripts\deploy_thessaloniki.sh
+		deployment-scripts\encrypt_secret.js = deployment-scripts\encrypt_secret.js
 	EndProjectSection
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "heracles", "heracles\heracles.csproj", "{BADF424C-7820-4728-B63E-5C62AC62B21C}"
@@ -21,17 +29,6 @@ EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "iraklion", "iraklion\iraklion.csproj", "{F713255D-786B-418D-80F8-D7475CBB99CE}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "thessaloniki", "thessaloniki\thessaloniki.csproj", "{68F23136-5430-4F2D-AF7A-4825D2CCB2FC}"
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "deployment-scripts", "deployment-scripts", "{126FD978-61F1-492D-A3F0-FC1C4BDDE518}"
-	ProjectSection(SolutionItems) = preProject
-		deploy_chania.sh = deploy_chania.sh
-		deploy_heracles.sh = deploy_heracles.sh
-		deploy_infrastructure.sh = deploy_infrastructure.sh
-		deploy_ioannina.sh = deploy_ioannina.sh
-		deploy_iraklion.sh = deploy_iraklion.sh
-		deploy_patra.sh = deploy_patra.sh
-		deploy_thessaloniki.sh = deploy_thessaloniki.sh
-	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -70,9 +67,6 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
-	EndGlobalSection
-	GlobalSection(NestedProjects) = preSolution
-		{126FD978-61F1-492D-A3F0-FC1C4BDDE518} = {7D7B9BAE-B55C-4388-99A1-1A925F0414DF}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {2E4F3383-83DA-48A6-8926-50DC62634EEA}

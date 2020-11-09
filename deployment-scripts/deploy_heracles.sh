@@ -1,6 +1,6 @@
 #!/bin/bash -e
 output_blob=$OUTPUT_LOG_NAME
-echo "<h2>Heracles Infrastructure</h2>" >> $output_blob
+echo "<h2>Heracles Infrastructure </h2>" >> $output_blob
 echo "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~" 
 echo         Deploying Heracles Infrastructure 
 echo "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"

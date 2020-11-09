@@ -2,7 +2,7 @@
 output_blob=$OUTPUT_LOG_NAME
 echo "<h2>Ioannina Infrastructure</h2>" >> $output_blob
 echo "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
-echo         Deploying Ioannina
+echo         Deploying Ioannina 
 echo "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
 echo ---Global Variables
 echo "IOANNINA_ALIAS: $IOANNINA_ALIAS"

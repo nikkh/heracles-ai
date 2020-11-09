@@ -2,7 +2,7 @@
 output_blob=$OUTPUT_LOG_NAME
 az extension add --name application-insights
 
-echo '<!DOCTYPE html><html><head></head><body>' >> $output_blob
+echo '<!DOCTYPE html><html><head> </head><body>' >> $output_blob
 echo '<h1>Deployment Log</h1>' >> $output_blob
 resourcesLink="https://portal.azure.com/#blade/HubsExtension/BrowseResourcesWithTag/tagName/HeraclesInstance/tagValue/$HERACLES_INSTANCE"
 echo '<a href="'$resourcesLink'">Click here to access your azure resources</a>' >> $output_blob

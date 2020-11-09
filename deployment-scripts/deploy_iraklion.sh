@@ -2,7 +2,7 @@
 output_blob=$OUTPUT_LOG_NAME
 echo "<h2>Iraklion Infrastructure</h2>" >> $output_blob
 echo "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
-echo         Deploying iraklion
+echo         Deploying iraklion 
 echo "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
 echo ---Global Variables
 echo "IRAKLION_ALIAS: $IRAKLION_ALIAS"

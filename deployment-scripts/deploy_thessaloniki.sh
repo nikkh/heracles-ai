@@ -2,7 +2,7 @@
 output_blob=$OUTPUT_LOG_NAME
 echo "<h2>Thessaloniki Infrastructure</h2>" >> $output_blob
 echo "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
-echo         Deploying thessaloniki
+echo         Deploying thessaloniki 
 echo "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
 echo ---Global Variables
 echo "THESSALONIKI_ALIAS: $THESSALONIKI_ALIAS"

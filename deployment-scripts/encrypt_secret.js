@@ -6,4 +6,4 @@ const keyBytes = Buffer.from(key, 'base64');
 const messageBytes = Buffer.from(value);
 const encryptedBytes = sodium.seal(messageBytes, keyBytes);
 const encrypted = Buffer.from(encryptedBytes).toString('base64')
-console.log(encrypted);
+console.log(encrypted); 

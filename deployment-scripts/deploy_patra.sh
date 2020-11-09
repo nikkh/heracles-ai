@@ -3,7 +3,7 @@ output_blob=$OUTPUT_LOG_NAME
 echo "<h2>Patra Infrastructure</h2>" >> $output_blob
 echo "Starting Patra Deploy..." >> $output_blob
 echo "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
-echo         Deploying Patra
+echo         Deploying Patra 
 echo "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
 echo ---Global Variables
 echo "PATRA_ALIAS: $PATRA_ALIAS"
