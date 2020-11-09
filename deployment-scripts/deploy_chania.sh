@@ -27,7 +27,7 @@ dbServerName="${applicationName}-db-server"
 dbName="${applicationName}-web-db"
 resourceGroupName="${applicationName}-rg"
 iraklionBaseUrl="https://${IRAKLION_ALIAS}-api.azurewebsites.net/"
-scorpioBaseUrl="https://${THESSALONIKI_ALIAS}-api.azurewebsites.net/"
+$thessalonikiBaseUrl="https://${THESSALONIKI_ALIAS}-api.azurewebsites.net/"
 
 echo ---Derived Variables
 echo "Application Name: $applicationName"
@@ -36,8 +36,8 @@ echo "Web App Name: $webAppName"
 echo "Hosting Plan: $hostingPlanName"
 echo "DB Server Name: $dbServerName"
 echo "DB Name: $dbName"
-echo "Limone base url: $iraklionBaseUrl"
-echo "Scorpio base url: $thessalonikiBaseUrl"
+echo "iraklion base url: $iraklionBaseUrl"
+echo "thessaloniki base url: $thessalonikiBaseUrl"
 echo
 
 echo "Creating resource group $resourceGroupName in $HERACLES_LOCATION"

@@ -14,6 +14,7 @@ deployment-scripts/deploy_iraklion.sh
 deployment-scripts/deploy_patra.sh
 deployment-scripts/deploy_ioannina.sh
 deployment-scripts/deploy_heracles.sh
+
 echo '</body></html>' >> $output_blob
 
 # Upload the deployment log to the zodiac storage account 
