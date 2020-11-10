@@ -145,3 +145,9 @@ jobs:
       uses: actions/setup-dotnet@v1
       with:
         dotnet-version: 3.1.101
+
+    - id: step2
+      name: Build Chania
+      run: dotnet build chania/chania.Web.csproj --configuration Debug
+
+    - 
