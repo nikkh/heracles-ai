@@ -56,36 +56,26 @@ jobs:
   job2:
     name: Create Heracles Infrastructure
     runs-on: ubuntu-latest
-    outputs:
-      acr_password: ${{ steps.step4.outputs.acr_password }}
     steps:
       - name: Checkout Repo
         uses: actions/checkout@v2
         id: step1
                     
-      - name: Setup .NET Core 3.1.101
-        uses: actions/setup-dotnet@v1
-        id: step2
-        with:
-          dotnet-version: 3.1.101
-        
       - name: Login to Azure
         uses: azure/login@v1
-        id: step3
+        id: step2
         with:
           creds: ${{ secrets.AZURE_CREDENTIALS }}
    
       - name: Run Deployment Scripts
-        id: step4
+        id: step3
         run: |
-                ls
                 chmod +x deployment-scripts/deploy_infrastructure.sh
                 chmod +x deployment-scripts/deploy_chania.sh
                 chmod +x deployment-scripts/deploy_thessaloniki.sh
                 chmod +x deployment-scripts/deploy_iraklion.sh
                 chmod +x deployment-scripts/deploy_patra.sh
                 chmod +x deployment-scripts/deploy_ioannina.sh
-                # sets output acr_password in here >
                 chmod +x deployment-scripts/deploy_heracles.sh
                 deployment-scripts/deploy_infrastructure.sh
   job3:
@@ -143,7 +133,6 @@ jobs:
             --header 'Cookie: logged_in=no; _octo=GH1.1.1387838137.1581271944' \
             --data-raw "$curl_body"
 
-              job3:
   job4:
     name: Deploy Chania Application
     runs-on: ubuntu-latest
