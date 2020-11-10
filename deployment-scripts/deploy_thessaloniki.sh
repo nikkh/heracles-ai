@@ -57,7 +57,7 @@ echo "<p>Storage Account Connection String: $storageConnectionString</p>" >> $ou
 
 echo "Creating app service $webAppName in group $resourceGroupName "
  az group deployment create -g $resourceGroupName \
-    --template-file scorpio-api/ArmTemplates/windows-webapp-template.json  \
+    --template-file thessaloniki/thessaloniki.json  \
     --parameters webAppName=$webAppName hostingPlanName=$hostingPlanName appInsightsLocation=$HERACLES_LOCATION \
         sku="${appservice_webapp_sku}" databaseConnectionString="{$databaseConnectionString}" >> $output_blob
 echo "<p>App Service (Web App): $webAppName</p>" >> $output_blob
