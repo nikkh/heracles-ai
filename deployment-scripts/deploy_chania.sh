@@ -42,7 +42,7 @@ echo
 
 echo "Creating resource group $resourceGroupName in $HERACLES_LOCATION"
 az group create -l "$HERACLES_LOCATION" --n "$resourceGroupName" --tags  HeraclesInstance=$HERACLES_INSTANCE Application=heracles MicrososerviceName=chania MicroserviceID=$applicationName PendingDelete=true >> $output_blob
-echo "<p>Resource Group: $resourceGroupName</p>" >> $output_Blob
+echo "<p>Resource Group: $resourceGroupName</p>" >> $output_blob
 
 echo "Creating app service $webAppName in group $resourceGroupName"
  az group deployment create -g $resourceGroupName \
@@ -51,7 +51,7 @@ echo "Creating app service $webAppName in group $resourceGroupName"
         databaseServerName=$dbServerName databaseUsername=$DB_ADMIN_USER databasePassword=$DB_ADMIN_PASSWORD databaseLocation=$HERACLES_LOCATION \
         databaseName=$dbName \
         sku="${appservice_webapp_sku}" databaseEdition=$database_edition >> $output_blob
-echo "<p>App Service (Web App): $webAppName</p>" >>$output_blob
+echo "<p>App Service (Web App): $webAppName</p>" >> $output_blob
 
 # chania application insights info
 chaniaAIKey=$(az monitor app-insights component show --app $webAppName -g $resourceGroupName --query instrumentationKey -o tsv)
@@ -61,6 +61,6 @@ APPINSIGHTS_INSTRUMENTATIONKEY=$chaniaAIKey
 ApplicationInsightsAgent_EXTENSION_VERSION='~2'
 
 echo "Updating App Settings for $webAppName"
-echo "<p>Web App Settings:" >> $output_Blob
+echo "<p>Web App Settings:" >> $output_blob
  az webapp config appsettings set -g $resourceGroupName -n $webAppName --settings IraklionBaseUrl=$iraklionBaseUrl ThessalonikiBaseUrl=$thessalonikiBaseUrl ASPNETCORE_ENVIRONMENT=Development AzureAD__Domain=$AAD_DOMAIN AzureAD__TenantId=$AAD_TENANTID AzureAD__ClientId=$AAD_CLIENTID APPLICATIONINSIGHTS_CONNECTION_STRING=$APPLICATIONINSIGHTS_CONNECTION_STRING APPINSIGHTS_INSTRUMENTATIONKEY=$APPINSIGHTS_INSTRUMENTATIONKEY ApplicationInsightsAgent_EXTENSION_VERSION=$ApplicationInsightsAgent_EXTENSION_VERSION >> deployment-log.txt
 echo "</p>" >> $output_blob

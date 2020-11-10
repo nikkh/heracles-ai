@@ -40,11 +40,11 @@ echo "Storage account name: $storageAccountName"
 echo
 
 echo "Creating resource group $resourceGroupName in $HERACLES_LOCATION"
-echo "<p>Resource Group: $resourceGroupName</p>" >> $output_Blob
+echo "<p>Resource Group: $resourceGroupName</p>" >> $output_blob
 az group create -l "$HERACLES_LOCATION" --n "$resourceGroupName" --tags  HeraclesInstance=$HERACLES_INSTANCE Application=heracles MicrososerviceName=thessaloniki MicroserviceID=$applicationName PendingDelete=true >> $output_blob
 
 echo "Creating storage account $storageAccountName in group $resourceGroupName"
-echo "<p>Storage Account: $storageAccountName</p>" >> $output_Blob
+echo "<p>Storage Account: $storageAccountName</p>" >> $output_blob
  az storage account create \
   --name $storageAccountName \
   --location $HERACLES_LOCATION \
@@ -79,6 +79,6 @@ ApplicationInsightsAgent_EXTENSION_VERSION='~2'
 echo "Updating App Settings for $webAppName"
 echo "<p>Web App Settings:" >> $output_blob
 az webapp config appsettings set -g $resourceGroupName -n $webAppName \
- --settings AZURE__STORAGE__CONNECTIONSTRING=$storageConnectionString "AZURE__A3SSDEVDB__CONNECTIONSTRING=$xsqlConnectionString" ASPNETCORE_ENVIRONMENT=Development APPLICATIONINSIGHTS_CONNECTION_STRING=$APPLICATIONINSIGHTS_CONNECTION_STRING APPINSIGHTS_INSTRUMENTATIONKEY=$APPINSIGHTS_INSTRUMENTATIONKEY ApplicationInsightsAgent_EXTENSION_VERSION=$ApplicationInsightsAgent_EXTENSION_VERSION >> deployment-log.txt >> $output_Blob
+ --settings AZURE__STORAGE__CONNECTIONSTRING=$storageConnectionString "AZURE__A3SSDEVDB__CONNECTIONSTRING=$xsqlConnectionString" ASPNETCORE_ENVIRONMENT=Development APPLICATIONINSIGHTS_CONNECTION_STRING=$APPLICATIONINSIGHTS_CONNECTION_STRING APPINSIGHTS_INSTRUMENTATIONKEY=$APPINSIGHTS_INSTRUMENTATIONKEY ApplicationInsightsAgent_EXTENSION_VERSION=$ApplicationInsightsAgent_EXTENSION_VERSION >> deployment-log.txt >> $output_blob
 echo "</p>" >> $output_blob
 
