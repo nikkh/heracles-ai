@@ -167,4 +167,189 @@ jobs:
         app-name: ${{env.CHANIA_ALIAS}}-web
         package: ${{env.DOTNET_ROOT}}/chania-app 
 
- 
+  job5:
+    name: Deploy Iraklion Application
+    runs-on: ubuntu-latest
+    needs: [job3]
+    steps:
+    - uses: actions/checkout@v2
+
+    - id: step1
+      name: Docker Login
+      uses: azure/docker-login@v1
+      with:
+        login-server: ${{env.HERACLES_ALIAS}}acr.azurecr.io
+        username: ${{env.HERACLES_ALIAS}}acr
+        password: ${{ secrets.ACR_PASSWORD }}
+
+    - id: step2
+      name: Azure Login
+      uses: azure/login@v1
+      with:
+        creds: ${{ secrets.AZURE_CREDENTIALS }}
+
+    - id: step3
+      name: Compose Customized Docker Image
+      shell: bash
+      run: |
+        docker build -f iraklion/Dockerfile -t ${{env.HERACLES_ALIAS}}acr.azurecr.io/heracles/iraklion:${{github.run_number}} .
+        docker push ${{env.HERACLES_ALIAS}}acr.azurecr.io/heracles/iraklion:${{github.run_number}}
+
+    - id: step4
+      name: Set Web App Docker Image
+      shell: bash
+      run: |
+        az webapp config container set --docker-custom-image-name ${{env.HERACLES_ALIAS}}acr.azurecr.io/zodiac/limone-api:${{github.run_number}} \
+             --docker-registry-server-password ${{ secrets.ACR_PASSWORD }} \
+             --docker-registry-server-url https://${{env.HERACLES_ALIAS}}acr.azurecr.io \
+             --docker-registry-server-user ${{env.HERACLES_ALIAS}}acr \
+             --name ${{env.IRAKLION_ALIAS}}-api \
+             --resource-group ${{env.IRAKLION_ALIAS}}-rg
+        az webapp log config --docker-container-logging filesystem \
+             --name ${{env.IRAKLION_ALIAS}}-api \
+             --resource-group ${{env.IRAKLION_ALIAS}}-rg
+
+  job6:
+    name: Deploy Ioannina Application
+    runs-on: windows-latest
+    needs: [job3]
+    steps:
+    - uses: actions/checkout@v2
+
+    - id: step1
+      name: Setup .NET Core 3.1.101
+      uses: actions/setup-dotnet@v1
+      with:
+        dotnet-version: 3.1.101
+
+    - id: step2
+      name: Build Ioannina
+      run: dotnet build ioannina/ioannina.csproj --configuration Debug
+
+    - id: step3
+      name: Publish Ioannina
+      run: dotnet publish ioannina/ioannina.csproj -c Debug -o ${{env.DOTNET_ROOT}}/ioannina-app 
+        
+    - id: step4
+      name: Login to Azure
+      uses: azure/login@v1
+      with:
+        creds: ${{ secrets.AZURE_CREDENTIALS }}
+
+    - id: step5
+      name: 'Deploy Ioannina'
+      uses: Azure/functions-action@v1
+      with:
+        app-name: ${{env.IOANNINA_ALIAS}}-func
+        package: ${{env.DOTNET_ROOT}}/ioannina-app 
+
+  job7:
+    name: Deploy Patra Application
+    runs-on: windows-latest
+    needs: [job3]
+    steps:
+    - uses: actions/checkout@v2
+
+    - id: step1
+      name: Setup .NET Core 3.1.101
+      uses: actions/setup-dotnet@v1
+      with:
+        dotnet-version: 3.1.101
+
+    - id: step2
+      name: Build Patra
+      run: dotnet build patra/patra.csproj --configuration Debug
+
+    - id: step3
+      name: Publish Ioannina
+      run: dotnet publish patra/patra.csproj -c Debug -o ${{env.DOTNET_ROOT}}/patra-app 
+        
+    - id: step4
+    - name: Login to Azure
+      uses: azure/login@v1
+      with:
+        creds: ${{ secrets.AZURE_CREDENTIALS }}
+
+    - id: step5
+      name: Deploy Patra
+      uses: Azure/functions-action@v1
+      with:
+        app-name: ${{env.PATRA_ALIAS}}-func
+        package: ${{env.DOTNET_ROOT}}/patra-app 
+
+  job8:
+    name: Deploy Thessaloniki Application
+    runs-on: ubuntu-latest
+    needs: [job3]
+    steps:
+    - uses: actions/checkout@v2
+
+    - id: step1
+      name: Setup .NET Core 3.1.101
+      uses: actions/setup-dotnet@v1
+      with:
+        dotnet-version: 3.1.101
+
+    - id: step2
+      name: Build Thessaloniki
+      run: dotnet build thessaloniki/thessaloniki.csproj --configuration Debug
+
+    - id: step3
+      name: Publish Thessaloniki
+      run: dotnet publish thessaloniki/thessaloniki.csproj -c Debug -o ${{env.DOTNET_ROOT}}/thessaloniki-app 
+        
+    - id: step4
+      name: Login to Azure
+      uses: azure/login@v1
+      with:
+        creds: ${{ secrets.AZURE_CREDENTIALS }}
+
+    - id: step5
+      name: Deploy Thessaloniki
+      uses: azure/webapps-deploy@v1
+      with:
+        app-name: ${{env.THESSALONIKI_ALIAS}}-func
+        package: ${{env.DOTNET_ROOT}}/thessaloniki-app 
+
+  job9:
+    name: Deploy Heracles Application
+    runs-on: ubuntu-latest
+    needs: [job3]
+    steps:
+    - uses: actions/checkout@v2
+
+    - id: step1
+      name: Docker Login
+      uses: azure/docker-login@v1
+      with:
+        login-server: ${{env.HERACLES_ALIAS}}acr.azurecr.io
+        username: ${{env.HERACLES_ALIAS}}acr
+        password: ${{ secrets.ACR_PASSWORD }}
+
+    - id: step2
+      name: Azure Login
+      uses: azure/login@v1
+      with:
+        creds: ${{ secrets.AZURE_CREDENTIALS }}
+
+    - id: step3
+      name: Compose Customized Docker Image
+      shell: bash
+      run: |
+        docker build -f heracles/Dockerfile -t ${{env.HERACLES_ALIAS}}acr.azurecr.io/heracles/heracles:${{github.run_number}} .
+        docker push ${{env.HERACLES_ALIAS}}acr.azurecr.io/heracles/heracles:${{github.run_number}}
+
+    - id: step4
+      name: Set Function App Docker Image
+      shell: bash
+      run: |
+        az functionapp config container set --docker-custom-image-name ${{env.HERACLES_ALIAS}}acr.azurecr.io/heracles/heracles:${{github.run_number}} \
+             --docker-registry-server-password ${{ secrets.ACR_PASSWORD }} \
+             --docker-registry-server-url https://${{env.HERACLES_ALIAS}}acr.azurecr.io \
+             --docker-registry-server-user ${{env.HERACLES_ALIAS}}acr \
+             --name ${{env.HERACLES_ALIAS}}-gen-func \
+             --resource-group ${{env.HERACLES_ALIAS}}-rg
+
+        az webapp log config --docker-container-logging filesystem \
+             --name ${{env.HERACLES_ALIAS}}-gen-func \
+             --resource-group ${{env.HERACLES_ALIAS}}-rg
