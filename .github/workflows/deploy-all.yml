@@ -104,24 +104,18 @@ jobs:
         creds: ${{ secrets.AZURE_CREDENTIALS }}
 
     - id: step3
-      name: Get ACR password
-      run: |
-           applicationName="${HERACLES_ALIAS}"
-           acrName="${applicationName}acr"
-           acrPassword=$(az acr credential show -n $acrName --query passwords[0].value -o tsv)
-           echo "acr_password=$acrPassword" >> $GITHUB_ENV
-
-    - id: step4
-      name: Encrypt Secret
+      name: Get ACR password and Encrypt
       run: |
           #!/bin/sh -e
           npm init -y
           npm install tweetsodium
-          echo "acr_password=$acr_password"
-          encrypted_value=$(node deployment-scripts/encrypt_secret.js "$acr_password" "$repo_public_key")
+          applicationName="${HERACLES_ALIAS}"
+          acrName="${applicationName}acr"
+          acrPassword=$(az acr credential show -n $acrName --query passwords[0].value -o tsv)
+          encrypted_value=$(node deployment-scripts/encrypt_secret.js "$acrPassword" "$repo_public_key")
           echo "encrypted_value=$encrypted_value" >> $GITHUB_ENV
           
-    - id: step5
+    - id: step4
       name: Store Secret
       run: |
            #!/bin/sh -e
@@ -148,7 +142,7 @@ jobs:
 
     - id: step2
       name: Build Chania
-      run: dotnet build chania/chania.Web.csproj --configuration Debug
+      run: dotnet build chania/chania.csproj --configuration Debug
 
     - id: step3
       name: Publish Chania
@@ -308,7 +302,7 @@ jobs:
       name: Deploy Thessaloniki
       uses: azure/webapps-deploy@v1
       with:
-        app-name: ${{env.THESSALONIKI_ALIAS}}-func
+        app-name: ${{env.THESSALONIKI_ALIAS}}-api
         package: ${{env.DOTNET_ROOT}}/thessaloniki-app 
 
   job9:
