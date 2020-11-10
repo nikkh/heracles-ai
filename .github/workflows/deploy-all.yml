@@ -325,7 +325,7 @@ jobs:
         password: ${{ secrets.ACR_PASSWORD }}
 
     - id: step2
-    - name: Azure Login
+      name: Azure Login
       uses: azure/login@v1
       with:
         creds: ${{ secrets.AZURE_CREDENTIALS }}
@@ -341,7 +341,7 @@ jobs:
       name: Set Function App Docker Image
       shell: bash
       run: |
-         az functionapp config container set --docker-custom-image-name ${{env.HERACLES_ALIAS}}acr.azurecr.io/heracles/heracles:${{github.run_number}} \
+        az functionapp config container set --docker-custom-image-name ${{env.HERACLES_ALIAS}}acr.azurecr.io/heracles/heracles:${{github.run_number}} \
              --docker-registry-server-password ${{ secrets.ACR_PASSWORD }} \
              --docker-registry-server-url https://${{env.HERACLES_ALIAS}}acr.azurecr.io \
              --docker-registry-server-user ${{env.HERACLES_ALIAS}}acr \
