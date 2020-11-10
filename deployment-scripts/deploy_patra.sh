@@ -47,7 +47,7 @@ az functionapp create \
  --storage-account $storageAccountName \
  --consumption-plan-location $HERACLES_LOCATION \
  --resource-group $resourceGroupName \
- --functions-version 3 -o >> $output_blob
+ --functions-version 3 >> $output_blob
 echo "<p>Function App: $functionAppName</p>" >> $output_blob
 
 az functionapp config appsettings delete --name $functionAppName --resource-group $resourceGroupName --setting-names APPINSIGHTS_INSTRUMENTATIONKEY APPLICATIONINSIGHTS_CONNECTION_STRING  >> $output_blob
