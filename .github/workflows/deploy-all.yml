@@ -145,24 +145,3 @@ jobs:
       uses: actions/setup-dotnet@v1
       with:
         dotnet-version: 3.1.101
-
-    - id: step2
-      name: Build Chania
-      run: dotnet build chania/chania.Web.csproj --configuration Debug
-
-    - id: step3
-      name: Publish Chania
-      run: dotnet publish chania/.csproj -c Debug -o ${{env.DOTNET_ROOT}}/chania-app 
-        
-    - id: step4
-    - name: Login to Azure
-      uses: azure/login@v1
-      with:
-        creds: ${{ secrets.AZURE_CREDENTIALS }}
-
-    - id: step5
-    - name: 'Deploy Chania to App Service'
-      uses: azure/webapps-deploy@v1
-      with: 
-        app-name: ${{env.CHANIA_ALIAS}}-web
-        package: ${{env.DOTNET_ROOT}}/chania-app 
