@@ -60,7 +60,7 @@ echo "<p>Storage Connection String: $storageConnectionString</p>" >> $output_blo
 
 echo "Creating app service $webAppName in group $resourceGroupName"
  az group deployment create -g $resourceGroupName \
-    --template-file iraklion/iraklion-acr.json  \
+    --template-file iraklion/iraklion.json  \
     --parameters webAppName=$webAppName hostingPlanName=$hostingPlanName appInsightsLocation=$HERACLES_LOCATION \
         sku="${appservice_webapp_sku}" registryName=$acrRegistryName imageName="$imageName" registryLocation="$HERACLES_LOCATION" registrySku="$acrSku" -o none
 echo "<p>App Service (Web App): $webAppName</p>" >> $output_blob
