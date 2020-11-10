@@ -64,3 +64,6 @@ settings="ServiceBusConnection=$iraklionServiceBusConnectionString"
 echo "<p>Function App Settings:" >> $output_blob
 az webapp config appsettings set -g $resourceGroupName -n $functionAppName --settings "$settings"  >> $output_blob
 echo "</p>" >> $output_blob
+if [ "$HERACLES_OUTPUT_LOGGING" = TRUE ]; then
+ cat $output_blob
+fi

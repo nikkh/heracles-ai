@@ -70,4 +70,6 @@ echo "Updating App Settings for $webAppName"
 echo "<p>Web App Settings:" >> $output_blob
 az webapp config appsettings set -g $resourceGroupName -n $webAppName --settings AZURE__STORAGE__CONNECTIONSTRING=$storageConnectionString AZURE__SERVICEBUS__CONNECTIONSTRING=$serviceBusConnectionString ASPNETCORE_ENVIRONMENT=Development APPINSIGHTS_KEY=$iraklionAIKey >> $output_blob
 echo "</p>" >> $output_blob
-  
+if [ "$HERACLES_OUTPUT_LOGGING" = TRUE ]; then
+ cat $output_blob
+fi

@@ -15,6 +15,10 @@ on:
         description: 'Instance Name'     
         required: true
         default: 'Lucky_Jim'
+      logOutput:
+        description: 'Whether to show additional output for deployment debugging'     
+        required: true
+        default: 'FALSE'
 env:
    HERACLES_PAT: ${{ secrets.HERACLES_PAT }}
    DB_ADMIN_PASSWORD: ${{ secrets.DB_ADMIN_PASSWORD }}
@@ -26,7 +30,7 @@ env:
    HERACLES_LOCATION: ${{ github.event.inputs.location }}
    HERACLES_INSTANCE: ${{ github.event.inputs.instance }}
    OUTPUT_LOG_NAME: "deployment-log.html"
-
+   HERACLES_OUTPUT_LOGGING: ${{ github.event.inputs.logOutput }}
    HERACLES_ALIAS: ${{ github.event.inputs.alias }}heracles
    CHANIA_ALIAS: ${{ github.event.inputs.alias }}chania
    IOANNINA_ALIAS: ${{ github.event.inputs.alias }}ioannina

@@ -47,11 +47,11 @@ az functionapp create \
  --storage-account $storageAccountName \
  --consumption-plan-location $HERACLES_LOCATION \
  --resource-group $resourceGroupName \
- --functions-version 3 -o none
+ --functions-version 3 -o >> $output_blob
 echo "<p>Function App: $functionAppName</p>" >> $output_blob
 
-az functionapp config appsettings delete --name $functionAppName --resource-group $resourceGroupName --setting-names APPINSIGHTS_INSTRUMENTATIONKEY APPLICATIONINSIGHTS_CONNECTION_STRING -o none
-az monitor app-insights component delete --app $functionAppName -g $resourceGroupName ->> $output_blob
+az functionapp config appsettings delete --name $functionAppName --resource-group $resourceGroupName --setting-names APPINSIGHTS_INSTRUMENTATIONKEY APPLICATIONINSIGHTS_CONNECTION_STRING  >> $output_blob
+az monitor app-insights component delete --app $functionAppName -g $resourceGroupName >> $output_blob
 
 echo "Updating App Settings for $functionAppName"
 settings="ServiceBusConnection=$iraklionServiceBusConnectionString"
@@ -59,3 +59,7 @@ echo "<p>Function App Settings:" >> $output_blob
 
 az webapp config appsettings set -g $resourceGroupName -n $functionAppName --settings "$settings"  >> $output_blob
 echo "</p>" >> $output_blob
+cat $output_blob
+if [ "$HERACLES_OUTPUT_LOGGING" = TRUE ]; then
+ cat $output_blob
+fi

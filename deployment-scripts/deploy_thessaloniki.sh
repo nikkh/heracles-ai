@@ -81,4 +81,6 @@ echo "<p>Web App Settings:" >> $output_blob
 az webapp config appsettings set -g $resourceGroupName -n $webAppName \
  --settings AZURE__STORAGE__CONNECTIONSTRING=$storageConnectionString "AZURE__A3SSDEVDB__CONNECTIONSTRING=$xsqlConnectionString" ASPNETCORE_ENVIRONMENT=Development APPLICATIONINSIGHTS_CONNECTION_STRING=$APPLICATIONINSIGHTS_CONNECTION_STRING APPINSIGHTS_INSTRUMENTATIONKEY=$APPINSIGHTS_INSTRUMENTATIONKEY ApplicationInsightsAgent_EXTENSION_VERSION=$ApplicationInsightsAgent_EXTENSION_VERSION >> deployment-log.txt >> $output_blob
 echo "</p>" >> $output_blob
-
+if [ "$HERACLES_OUTPUT_LOGGING" = TRUE ]; then
+ cat $output_blob
+fi
