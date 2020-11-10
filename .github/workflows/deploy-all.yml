@@ -94,6 +94,7 @@ jobs:
     needs: [job2]
     steps:
     - uses: actions/checkout@v2
+
     - id: step1
       name: Get Repo public key
       run: |
@@ -107,7 +108,7 @@ jobs:
             echo "repo_public_key_id=$repo_public_key_id" >> $GITHUB_ENV
 
     - id: step2
-    - name: Login to Azure
+      name: Login to Azure
       uses: azure/login@v1
       with:
         creds: ${{ secrets.AZURE_CREDENTIALS }}
@@ -149,11 +150,13 @@ jobs:
     needs: [job3]
     steps:
     - uses: actions/checkout@v2
+
     - id: step1
       name: Setup .NET Core 3.1.101
       uses: actions/setup-dotnet@v1
       with:
         dotnet-version: 3.1.101
+
     - id: step2
       name: Build Chania
       run: dotnet build chania/chania.Web.csproj --configuration Debug
@@ -174,12 +177,14 @@ jobs:
       with: 
         app-name: ${{env.CHANIA_ALIAS}}-web
         package: ${{env.DOTNET_ROOT}}/chania-app 
+
   job5:
     name: Deploy Iraklion Application
     runs-on: ubuntu-latest
     needs: [job3]
     steps:
     - uses: actions/checkout@v2
+
     - id: step1
       name: Docker Login
       uses: azure/docker-login@v1
@@ -189,7 +194,7 @@ jobs:
         password: ${{ secrets.ACR_PASSWORD }}
 
     - id: step2
-    - name: Azure Login
+      name: Azure Login
       uses: azure/login@v1
       with:
         creds: ${{ secrets.AZURE_CREDENTIALS }}
@@ -214,12 +219,14 @@ jobs:
         az webapp log config --docker-container-logging filesystem \
              --name ${{env.IRAKLION_ALIAS}}-api \
              --resource-group ${{env.IRAKLION_ALIAS}}-rg
+
   job6:
     name: Deploy Ioannina Application
     runs-on: windows-latest
     needs: [job3]
     steps:
     - uses: actions/checkout@v2
+
     - id: step1
       name: Setup .NET Core 3.1.101
       uses: actions/setup-dotnet@v1
@@ -235,7 +242,7 @@ jobs:
       run: dotnet publish ioannina/ioannina.csproj -c Debug -o ${{env.DOTNET_ROOT}}/ioannina-app 
         
     - id: step4
-    - name: Login to Azure
+      name: Login to Azure
       uses: azure/login@v1
       with:
         creds: ${{ secrets.AZURE_CREDENTIALS }}
@@ -246,12 +253,14 @@ jobs:
       with:
         app-name: ${{env.IOANNINA_ALIAS}}-func
         package: ${{env.DOTNET_ROOT}}/ioannina-app 
+
   job7:
     name: Deploy Patra Application
     runs-on: windows-latest
     needs: [job3]
     steps:
     - uses: actions/checkout@v2
+
     - id: step1
       name: Setup .NET Core 3.1.101
       uses: actions/setup-dotnet@v1
@@ -273,17 +282,19 @@ jobs:
         creds: ${{ secrets.AZURE_CREDENTIALS }}
 
     - id: step5
-      name: 'Deploy Patra'
+      name: Deploy Patra
       uses: Azure/functions-action@v1
       with:
         app-name: ${{env.PATRA_ALIAS}}-func
         package: ${{env.DOTNET_ROOT}}/patra-app 
+
   job8:
     name: Deploy Thessaloniki Application
     runs-on: ubuntu-latest
     needs: [job3]
     steps:
     - uses: actions/checkout@v2
+
     - id: step1
       name: Setup .NET Core 3.1.101
       uses: actions/setup-dotnet@v1
@@ -299,23 +310,25 @@ jobs:
       run: dotnet publish thessaloniki/thessaloniki.csproj -c Debug -o ${{env.DOTNET_ROOT}}/thessaloniki-app 
         
     - id: step4
-    - name: Login to Azure
+      name: Login to Azure
       uses: azure/login@v1
       with:
         creds: ${{ secrets.AZURE_CREDENTIALS }}
 
     - id: step5
-      name: 'Deploy Thessaloniki'
+      name: Deploy Thessaloniki
       uses: azure/webapps-deploy@v1
       with:
         app-name: ${{env.THESSALONIKI_ALIAS}}-func
         package: ${{env.DOTNET_ROOT}}/thessaloniki-app 
+
   job9:
     name: Deploy Heracles Application
     runs-on: ubuntu-latest
     needs: [job3]
     steps:
     - uses: actions/checkout@v2
+
     - id: step1
       name: Docker Login
       uses: azure/docker-login@v1
@@ -347,6 +360,7 @@ jobs:
              --docker-registry-server-user ${{env.HERACLES_ALIAS}}acr \
              --name ${{env.HERACLES_ALIAS}}-gen-func \
              --resource-group ${{env.HERACLES_ALIAS}}-rg
+
         az webapp log config --docker-container-logging filesystem \
              --name ${{env.HERACLES_ALIAS}}-gen-func \
              --resource-group ${{env.HERACLES_ALIAS}}-rg
