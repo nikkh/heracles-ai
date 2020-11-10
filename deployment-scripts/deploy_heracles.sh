@@ -45,6 +45,7 @@ echo "Creating azure container registry $acrName in $resourceGroupName"
 az acr create -l $HERACLES_LOCATION --sku basic -n $acrName --admin-enabled -g $resourceGroupName -o none
 acrUser=$(az acr credential show -n $acrName --query username -o tsv)
 acrPassword=$(az acr credential show -n $acrName --query passwords[0].value -o tsv)
+echo "::set-output name=acr_password::$acrpassword"
 echo "<p>ACR: $acrName</p>" >> $output_blob
 echo "<p>ACR User Name: $acrUser</p>" >> $output_blob 
 echo '<p style="color:Tomato;">It is very important that you set the ACR Password into your GitHub secret called ACR_PASSWORD</p>' >> $output_blob
