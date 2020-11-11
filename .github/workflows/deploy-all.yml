@@ -1,4 +1,4 @@
-name: Deploy Everything
+name: Deploy Heracles Old
 
 on: 
   workflow_dispatch:

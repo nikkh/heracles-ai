@@ -1,4 +1,4 @@
-name: Deploy Iraklion Micrososervice (Child)
+name: Iraklion Microservice
 on: 
   workflow_dispatch:
     inputs:

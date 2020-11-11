@@ -1,4 +1,4 @@
-name: Deploy Everything
+name: Deploy Heracles
 
 on: 
   workflow_dispatch:
@@ -128,7 +128,7 @@ jobs:
       name: Deploy Chania Microservice (Parent)
       uses: benc-uk/workflow-dispatch@v1
       with:
-        workflow: Deploy Chania Microservice (Child)
+        workflow: Chania Microservice
         token: ${{ secrets.HERACLES_PAT }}
         inputs: '{ "chania_alias": "${{ env.CHANIA_ALIAS }}" }'
   job4:
@@ -140,7 +140,7 @@ jobs:
       name: Deploy Ioannina Microservice (Parent)
       uses: benc-uk/workflow-dispatch@v1
       with:
-        workflow: Deploy Ioannina Microservice (Child)
+        workflow: Ioannina Microservice
         token: ${{ secrets.HERACLES_PAT }}
         inputs: '{ "ioannina_alias": "${{ env.IOANNINA_ALIAS }}"}'
   job5:
@@ -152,7 +152,7 @@ jobs:
       name: Deploy Patra Microservice (Parent)
       uses: benc-uk/workflow-dispatch@v1
       with:
-        workflow: Deploy Patra Microservice (Child)
+        workflow: Patra Microservice
         token: ${{ secrets.HERACLES_PAT }}
         inputs: '{ "patra_alias": "${{ env.PATRA_ALIAS }}"}'
   job6:
@@ -164,7 +164,7 @@ jobs:
       name: Deploy Thessaloniki Microservice (Parent)
       uses: benc-uk/workflow-dispatch@v1
       with:
-        workflow: Deploy Thessaloniki Microservice (Child)
+        workflow: Thessaloniki Microservice
         token: ${{ secrets.HERACLES_PAT }}
         inputs: '{ "thessaloniki_alias": "${{ env.THESSALONIKI_ALIAS }}"}'
   job7:
@@ -176,7 +176,7 @@ jobs:
       name: Deploy Iraklion Microservice (Parent)
       uses: benc-uk/workflow-dispatch@v1
       with:
-        workflow: Deploy Iraklion Microservice (Child)
+        workflow: Iraklion Microservice
         token: ${{ secrets.HERACLES_PAT }}
         inputs: '{ "heracles_alias": "${{ env.HERACLES_ALIAS }}", "iraklion_alias": "${{ env.IRAKLION_ALIAS }}"}'
   job8:
@@ -188,6 +188,6 @@ jobs:
       name: Deploy Heracles Microservice (Parent)
       uses: benc-uk/workflow-dispatch@v1
       with:
-        workflow: Deploy Heracles Microservice (Child)
+        workflow: Heracles Microservice
         token: ${{ secrets.HERACLES_PAT }}
         inputs: '{ "alias": "${{ env.HERACLES_ALIAS }}" }'

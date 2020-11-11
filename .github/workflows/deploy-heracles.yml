@@ -1,4 +1,4 @@
-name: Deploy Heracles Micrososervice (Child)
+name: Heracles Microservice
 on: 
   workflow_dispatch:
     inputs:

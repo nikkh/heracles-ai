@@ -1,4 +1,4 @@
-name: Deploy Patra Microservice (Child)
+name: Patra Microservice
 on: 
   workflow_dispatch:
     inputs:

@@ -1,4 +1,4 @@
-name: Deploy Chania Microservice (Child)
+name: Chania Microservice
 on: 
   workflow_dispatch:
     inputs:
