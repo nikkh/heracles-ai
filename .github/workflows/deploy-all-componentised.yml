@@ -1,5 +1,4 @@
-name: Deploy Heracles
-
+name: Deploy All Componentised 
 on: 
   workflow_dispatch:
     inputs:
@@ -45,10 +44,7 @@ env:
    PATRA_ALIAS: ${{ github.event.inputs.alias }}patra
    IRAKLION_ALIAS: ${{ github.event.inputs.alias }}iraklion
    THESSALONIKI_ALIAS: ${{ github.event.inputs.alias }}thessaloniki 
-
-
 jobs:
-
   job1:
     name: Create Heracles Infrastructure
     runs-on: ubuntu-latest
@@ -177,7 +173,6 @@ jobs:
         workflow: Deploy Iraklion Microservice (Child)
         token: ${{ secrets.HERACLES_PAT }}
         inputs: '{ "heracles_alias": "${{ env.HERACLES_ALIAS }}", "iraklion_alias": "${{ env.IRAKLION_ALIAS }}"}'
-
   job8:
     name: Initiate Heracles Application Deployment
     runs-on: ubuntu-latest
