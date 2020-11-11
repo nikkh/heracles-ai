@@ -24,7 +24,7 @@ jobs:
       with:
         dotnet-version: 3.1.101
 
-i   - id: step2
+    - id: step2
       name: Build Thessaloniki
       run: dotnet build thessaloniki/thessaloniki.csproj --configuration Debug
 
