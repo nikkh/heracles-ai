@@ -120,7 +120,7 @@ jobs:
             --header 'Cookie: logged_in=no; _octo=GH1.1.1387838137.1581271944' \
             --data-raw "$curl_body"
   job3:
-    name: Initiate Chania Application Deployment
+    name: Initiate Chania Deployment
     runs-on: ubuntu-latest
     needs: [job2]
     steps:
@@ -132,7 +132,7 @@ jobs:
         token: ${{ secrets.HERACLES_PAT }}
         inputs: '{ "chania_alias": "${{ env.CHANIA_ALIAS }}" }'
   job4:
-    name: Deploy Ioannina Application
+    name: Initiate Ioannina Deployment
     runs-on: windows-latest
     needs: [job2]
     steps:
@@ -144,7 +144,7 @@ jobs:
         token: ${{ secrets.HERACLES_PAT }}
         inputs: '{ "ioannina_alias": "${{ env.IOANNINA_ALIAS }}"}'
   job5:
-    name: Deploy Patra Application
+    name: Initiate Patra Deployment
     runs-on: windows-latest
     needs: [job2]
     steps:
@@ -156,7 +156,7 @@ jobs:
         token: ${{ secrets.HERACLES_PAT }}
         inputs: '{ "patra_alias": "${{ env.PATRA_ALIAS }}"}'
   job6:
-    name: Deploy Thessaloniki Application
+    name: Initiate Thessaloniki Deployment
     runs-on: windows-latest
     needs: [job2]
     steps:
@@ -168,7 +168,7 @@ jobs:
         token: ${{ secrets.HERACLES_PAT }}
         inputs: '{ "thessaloniki_alias": "${{ env.THESSALONIKI_ALIAS }}"}'
   job7:
-    name: Inititate Iraklion Application Deployment
+    name: Inititate Iraklion Deployment
     runs-on: ubuntu-latest
     needs: [job2]
     steps:
@@ -180,7 +180,7 @@ jobs:
         token: ${{ secrets.HERACLES_PAT }}
         inputs: '{ "heracles_alias": "${{ env.HERACLES_ALIAS }}", "iraklion_alias": "${{ env.IRAKLION_ALIAS }}"}'
   job8:
-    name: Initiate Heracles Application Deployment
+    name: Initiate Heracles Deployment
     runs-on: ubuntu-latest
     needs: [job2]
     steps:
@@ -190,4 +190,4 @@ jobs:
       with:
         workflow: Heracles Microservice
         token: ${{ secrets.HERACLES_PAT }}
-        inputs: '{ "alias": "${{ env.HERACLES_ALIAS }}" }'
+        inputs: '{ "heracles_alias": "${{ env.HERACLES_ALIAS }}" }'
