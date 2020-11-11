@@ -8,12 +8,12 @@ resourcesLink="https://portal.azure.com/#blade/HubsExtension/BrowseResourcesWith
 echo '<a href="'$resourcesLink'">Click here to access your azure resources</a>' >> $output_blob
 echo '<p></p>' >>$output_blob
 
-deployment-scripts/deploy_chania.sh
-deployment-scripts/deploy_thessaloniki.sh
-deployment-scripts/deploy_iraklion.sh
-deployment-scripts/deploy_patra.sh
-deployment-scripts/deploy_ioannina.sh
-deployment-scripts/deploy_heracles.sh
+deployment-scripts/deploy_chania_infra.sh
+deployment-scripts/deploy_thessaloniki_infra.sh
+deployment-scripts/deploy_iraklion_infra.sh
+deployment-scripts/deploy_patra_infra.sh
+deployment-scripts/deploy_ioannina_infra.sh
+deployment-scripts/deploy_heracles_infra.sh
 
 echo '</body></html>' >> $output_blob
 
