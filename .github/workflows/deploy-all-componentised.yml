@@ -1,4 +1,5 @@
-name: Deploy All Componentised 
+name: Deploy Everything
+
 on: 
   workflow_dispatch:
     inputs:
