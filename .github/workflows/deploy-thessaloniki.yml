@@ -1,0 +1,40 @@
+name: Deploy Thessaloniki Microservice (Child)
+on: 
+  workflow_dispatch:
+    inputs:
+      thessaloniki_alias:
+        description: 'Thessaloniki Alias'     
+        required: true
+env:
+   HERACLES_PAT: ${{ secrets.HERACLES_PAT }}
+   THESSALONIKI_ALIAS: ${{ github.event.inputs.thessaloniki_alias }}  
+jobs:
+  job1:
+    name: Deploy Thessaloniki Application
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - uses: azure/login@v1
+      with:
+        creds: ${{ secrets.AZURE_CREDENTIALS }}
+
+    - id: step1
+      name: Setup .NET Core 3.1.101
+      uses: actions/setup-dotnet@v1
+      with:
+        dotnet-version: 3.1.101
+
+i   - id: step2
+      name: Build Thessaloniki
+      run: dotnet build thessaloniki/thessaloniki.csproj --configuration Debug
+
+    - id: step3
+      name: Publish Thessaloniki
+      run: dotnet publish thessaloniki/thessaloniki.csproj -c Debug -o ${{env.DOTNET_ROOT}}/thessaloniki-app 
+
+    - id: step5
+      name: Deploy Thessaloniki
+      uses: azure/webapps-deploy@v1
+      with:
+        app-name: ${{env.THESSALONIKI_ALIAS}}-api
+        package: ${{env.DOTNET_ROOT}}/thessaloniki-app 

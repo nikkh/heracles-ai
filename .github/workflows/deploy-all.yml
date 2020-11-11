@@ -43,7 +43,7 @@ env:
    IRAKLION_ALIAS: ${{ github.event.inputs.alias }}iraklion
    THESSALONIKI_ALIAS: ${{ github.event.inputs.alias }}thessaloniki 
    PENDING_DELETE: ${{ github.event.inputs.pendingDelete }}
-# A workflow run is made up of one or more jobs that can run sequentially or in parallel
+
 jobs:
   job1:
     name: Parse Global Parameters

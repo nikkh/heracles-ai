@@ -1,0 +1,40 @@
+name: Deploy Chania Microservice (Child)
+on: 
+  workflow_dispatch:
+    inputs:
+      chania_alias:
+        description: 'Chania Alias'     
+        required: true
+env:
+   HERACLES_PAT: ${{ secrets.HERACLES_PAT }}
+   CHANIA_ALIAS: ${{ github.event.inputs.chania_alias }}  
+jobs:
+  job1:
+    name: Deploy Chania Application
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - uses: azure/login@v1
+      with:
+        creds: ${{ secrets.AZURE_CREDENTIALS }}
+
+    - id: step1
+      name: Setup .NET Core 3.1.101
+      uses: actions/setup-dotnet@v1
+      with:
+        dotnet-version: 3.1.101
+
+    - id: step2
+      name: Build Chania
+      run: dotnet build chania/chania.csproj --configuration Debug
+
+    - id: step3
+      name: Publish Chania
+      run: dotnet publish chania/chania.csproj -c Debug -o ${{env.DOTNET_ROOT}}/chania-app 
+        
+    - id: step4
+      name: 'Deploy Chania to App Service'
+      uses: azure/webapps-deploy@v1
+      with: 
+        app-name: ${{env.CHANIA_ALIAS}}-web
+        package: ${{env.DOTNET_ROOT}}/chania-app
