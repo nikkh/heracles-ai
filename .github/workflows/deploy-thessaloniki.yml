@@ -1,4 +1,4 @@
-name:Thessaloniki Microservice
+name: Thessaloniki Microservice
 on: 
   workflow_dispatch:
     inputs:
