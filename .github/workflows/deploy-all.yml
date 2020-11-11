@@ -19,6 +19,10 @@ on:
         description: 'debug output?'     
         required: true
         default: 'FALSE'
+      pendingDelete:
+        description: 'pending delete?'     
+        required: true
+        default: 'true'
 env:
    HERACLES_PAT: ${{ secrets.HERACLES_PAT }}
    DB_ADMIN_PASSWORD: ${{ secrets.DB_ADMIN_PASSWORD }}
@@ -38,7 +42,7 @@ env:
    PATRA_ALIAS: ${{ github.event.inputs.alias }}patra
    IRAKLION_ALIAS: ${{ github.event.inputs.alias }}iraklion
    THESSALONIKI_ALIAS: ${{ github.event.inputs.alias }}thessaloniki 
-
+   PENDING_DELETE: ${{ github.event.inputs.pendingDelete }}
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
   job1:
@@ -146,7 +150,7 @@ jobs:
 
     - id: step3
       name: Publish Chania
-      run: dotnet publish chania/.csproj -c Debug -o ${{env.DOTNET_ROOT}}/chania-app 
+      run: dotnet publish chania/chania.csproj -c Debug -o ${{env.DOTNET_ROOT}}/chania-app 
         
     - id: step4
       name: Login to Azure
