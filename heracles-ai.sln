@@ -14,6 +14,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		deployment-scripts\deploy_patra.sh = deployment-scripts\deploy_patra.sh
 		deployment-scripts\deploy_thessaloniki.sh = deployment-scripts\deploy_thessaloniki.sh
 		deployment-scripts\encrypt_secret.js = deployment-scripts\encrypt_secret.js
+		.github\workflows\secret-test-part-b.yml = .github\workflows\secret-test-part-b.yml
 		.github\workflows\secret-test.yml = .github\workflows\secret-test.yml
 	EndProjectSection
 EndProject
