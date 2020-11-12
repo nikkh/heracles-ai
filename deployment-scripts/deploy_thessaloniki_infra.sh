@@ -61,7 +61,7 @@ echo "Creating app service $webAppName in group $resourceGroupName "
  az group deployment create -g $resourceGroupName \
     --template-file thessaloniki/thessaloniki.json  \
     --parameters webAppName=$webAppName hostingPlanName=$hostingPlanName appInsightsLocation=$HERACLES_LOCATION \
-        sku="${appservice_webapp_sku}" databaseConnectionString="{$databaseConnectionString}" -tags >> $output_blob
+        sku="${appservice_webapp_sku}" databaseConnectionString="{$databaseConnectionString}" >> $output_blob
 echo "<p>App Service (Web App): $webAppName</p>" >> $output_blob
 
 
