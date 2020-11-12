@@ -38,10 +38,11 @@ echo "DB Name: $dbName"
 echo "Database connection string: $databaseConnectionString"
 echo "Storage account name: $storageAccountName"
 echo
-tags=$"HeraclesInstance=$HERACLES_INSTANCE Application=heracles MicrososerviceName=thessaloniki MicroserviceID=$applicationName PendingDelete=$PENDING_DELETE"
+
 echo "Creating resource group $resourceGroupName in $HERACLES_LOCATION"
 echo "<p>Resource Group: $resourceGroupName</p>" >> $output_blob
-az group create -l "$HERACLES_LOCATION" --n "$resourceGroupName" --tags  "$tags" >> $output_blob
+az group create -l "$HERACLES_LOCATION" --n "$resourceGroupName" --tags  --tags  HeraclesInstance=$HERACLES_INSTANCE Application=heracles MicrososerviceName=thessaaloniki MicroserviceID=$applicationName PendingDelete=true >> $output_blob
+echo "<p>Resource Group: $resourceGroupName</p>" >> $output_blob >> $output_blob
 
 echo "Creating storage account $storageAccountName in group $resourceGroupName"
 echo "<p>Storage Account: $storageAccountName</p>" >> $output_blob
@@ -50,7 +51,7 @@ echo "<p>Storage Account: $storageAccountName</p>" >> $output_blob
   --location $HERACLES_LOCATION \
   --resource-group $resourceGroupName \
   --sku Standard_LRS  \
-  --tags  "$tags" >> $output_blob
+  --tags  HeraclesInstance=$HERACLES_INSTANCE Application=heracles MicrososerviceName=thessaaloniki MicroserviceID=$applicationName PendingDelete=true >> $output_blob
   
 
 storageConnectionString=$(az storage account show-connection-string -n $storageAccountName -g $resourceGroupName --query connectionString -o tsv)
@@ -60,7 +61,7 @@ echo "Creating app service $webAppName in group $resourceGroupName "
  az group deployment create -g $resourceGroupName \
     --template-file thessaloniki/thessaloniki.json  \
     --parameters webAppName=$webAppName hostingPlanName=$hostingPlanName appInsightsLocation=$HERACLES_LOCATION \
-        sku="${appservice_webapp_sku}" databaseConnectionString="{$databaseConnectionString}" >> $output_blob
+        sku="${appservice_webapp_sku}" databaseConnectionString="{$databaseConnectionString}" -tags >> $output_blob
 echo "<p>App Service (Web App): $webAppName</p>" >> $output_blob
 
 
