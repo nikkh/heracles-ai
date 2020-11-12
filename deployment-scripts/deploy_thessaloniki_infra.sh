@@ -41,7 +41,7 @@ echo
 
 echo "Creating resource group $resourceGroupName in $HERACLES_LOCATION"
 echo "<p>Resource Group: $resourceGroupName</p>" >> $output_blob
-az group create -l "$HERACLES_LOCATION" --n "$resourceGroupName" --tags  --tags  HeraclesInstance=$HERACLES_INSTANCE Application=heracles MicrososerviceName=thessaaloniki MicroserviceID=$applicationName PendingDelete=true >> $output_blob
+az group create -l "$HERACLES_LOCATION" --n "$resourceGroupName" --tags  HeraclesInstance=$HERACLES_INSTANCE Application=heracles MicrososerviceName=thessaaloniki MicroserviceID=$applicationName PendingDelete=true >> $output_blob
 echo "<p>Resource Group: $resourceGroupName</p>" >> $output_blob >> $output_blob
 
 echo "Creating storage account $storageAccountName in group $resourceGroupName"
