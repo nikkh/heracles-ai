@@ -2,33 +2,32 @@
 @model IndexViewModel
 
 @{
-    ViewData["Title"] = "Home PageX";
+    ViewData["Title"] = "Heracles";
 }
 
 <div class="text-center">
-    <h1 class="display-4">Zodiac</h1>
-    <p>Zodiac enables you to run mock transactions to test Application Insights distributed tracing.  There are twelve transactions to choose from in the list below.</p>
+    <h1 class="display-4">Heracles</h1>
+    <p>Each of the labours of heracles below generates a transaction that uses one of more API calls.  Each call is different and lets you demonstrate or study various aspects of application insights functionalityHeracles enables you to run mock transactions to test Application Insights distributed tracing.  There are twelve transactions to choose from in the list below.</p>
+    <p>Try clicking on the images to generate some data.</p>
 </div>
 <div class="container">
     <div class="row">
-        <div class="col"><partial name="SignPartial.cshtml" model='@Model.Signs["ARIES"]' /></div>
-        <div class="col"><partial name="SignPartial.cshtml" model='@Model.Signs["TAURUS"]' /></div>
-        <div class="col"><partial name="SignPartial.cshtml" model='@Model.Signs["GEMINI"]' /></div>
-        <div class="col"><partial name="SignPartial.cshtml" model='@Model.Signs["CANCER"]' /></div>
+        <div class="col"><partial name="SignPartial.cshtml" model='@Model.Signs["nemean-lion"]' /></div>
+        <div class="col"><partial name="SignPartial.cshtml" model='@Model.Signs["lernaean-hydra"]' /></div>
+        <div class="col"><partial name="SignPartial.cshtml" model='@Model.Signs["ceryneian-hind"]' /></div>
+        <div class="col"><partial name="SignPartial.cshtml" model='@Model.Signs["erymanthian-boar"]' /></div>
     </div>
     <div class="row">
-        <div class="col"><partial name="SignPartial.cshtml" model='@Model.Signs["LEO"]' /></div>
-        <div class="col"><partial name="SignPartial.cshtml" model='@Model.Signs["VIRGO"]' /></div>
-        <div class="col"><partial name="SignPartial.cshtml" model='@Model.Signs["LIBRA"]' /></div>
-        <div class="col"><partial name="SignPartial.cshtml" model='@Model.Signs["SCORPIO"]' /></div>
+        <div class="col"><partial name="SignPartial.cshtml" model='@Model.Signs["augean-stables"]' /></div>
+        <div class="col"><partial name="SignPartial.cshtml" model='@Model.Signs["stymphalian-birds"]' /></div>
+        <div class="col"><partial name="SignPartial.cshtml" model='@Model.Signs["cretan-bull"]' /></div>
+        <div class="col"><partial name="SignPartial.cshtml" model='@Model.Signs["mares-of-diomedes"]' /></div>
     </div>
     <div class="row">
-        <div class="col"><partial name="SignPartial.cshtml" model='@Model.Signs["SAGITTARIUS"]' /></div>
-        <div class="col"><partial name="SignPartial.cshtml" model='@Model.Signs["CAPRICORN"]' /></div>
-        <div class="col"><partial name="SignPartial.cshtml" model='@Model.Signs["AQUARIUS"]' /></div>
-        <div class="col"><partial name="SignPartial.cshtml" model='@Model.Signs["PISCES"]' /></div>
+        <div class="col"><partial name="SignPartial.cshtml" model='@Model.Signs["belt-of-hippolyta"]' /></div>
+        <div class="col"><partial name="SignPartial.cshtml" model='@Model.Signs["cattle-of-geryon"]' /></div>
+        <div class="col"><partial name="SignPartial.cshtml" model='@Model.Signs["apples-of-hesperides"]' /></div>
+        <div class="col"><partial name="SignPartial.cshtml" model='@Model.Signs["cerberus"]' /></div>
     </div>
 </div>
-<div class="btn btn-lg">
-    @Html.ActionLink("First call to Limone", "TempAPICall", "Home")
-</div>
+

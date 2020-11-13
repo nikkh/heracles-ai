@@ -16,7 +16,7 @@ namespace Heracles
             _heraclesContext = heraclesContext;
         }
 
-        [FunctionName("ZodiacGeneratorTimerTrigger")]
+        [FunctionName("HereclesGeneratorTimerTrigger")]
         public async Task Run([TimerTrigger("0 */5 * * * *")]TimerInfo myTimer, ILogger log, ExecutionContext ec)
         {
             try

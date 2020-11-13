@@ -18,7 +18,7 @@ namespace Heracles
             _heraclesContext = heraclesContext;
         }
 
-        [FunctionName("ZodiacGeneratorHttpTrigger")]
+        [FunctionName("HereclesGeneratorHttpTrigger")]
         public async Task<IActionResult> Run(
             [HttpTrigger(AuthorizationLevel.Function, "get",  Route = null)] HttpRequest req,
              ILogger log, ExecutionContext ec)

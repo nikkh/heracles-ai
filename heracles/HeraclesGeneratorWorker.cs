@@ -22,7 +22,7 @@ namespace Heracles
                 calls = random.Next(1, _heraclesContext.NumberOfCallsPerInvocation);
             }
             
-            string[] pageMaster = { "aries", "cancer", "taurus", "gemini", "leo", "virgo", "libra", "scorpio", "sagittarius", "pisces", "aquarius" };
+            string[] pageMaster = { "mares-of-diomedes", "nemean-lion", "cretan-bull", "belt-of-hippolyta", "apples-of-hesperides", "lernaean-hydra", "ceryneian-hind", "erymanthian-boar", "stymphalian-birds", "augean-stables", "cerberus" };
             log.LogInformation($"About to generate {calls} calls.");
             List<string> pages = new List<string>();
             for (int i = 0; i < calls; i++)

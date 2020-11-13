@@ -37,22 +37,77 @@ namespace Chania.Controllers
         {
             ViewData["Title"] = "Home Page";
             var vm = new IndexViewModel();
-            vm.Signs.Add("ARIES", new SignPartialViewModel { Name = "Aries", 
-                Description = "The most simple transaction. Simply calls a RESTful service in different Web Application, different AppInsights instance", 
-                Image = "/images/aries.svg" });
-            vm.Signs.Add("TAURUS", new SignPartialViewModel { Name = "Taurus", 
-                Description = "This transaction calls a RESTful service that waits a random amount of time before returning. Fails between 16.00-16.30", 
-                Image = "/images/taurus.svg" });
-            vm.Signs.Add("GEMINI", new SignPartialViewModel { Name = "Gemini", Description = "Calls a RESTFul service that always throws an exception [show snapshot debugger]", Image = "/images/gemini.svg" });
-            vm.Signs.Add("CANCER", new SignPartialViewModel { Name = "Cancer", Description = "Calls a RESTFul service that calls another RESTful service", Image = "/images/cancer.svg" });
-            vm.Signs.Add("LEO", new SignPartialViewModel { Name = "Leo", Description = "Writes a blob to Blob Storage", Image = "/images/leo.svg" });
-            vm.Signs.Add("VIRGO", new SignPartialViewModel { Name = "Virgo", Description = "writes to service bus queue which triggers azure function, using a different AI instance", Image = "/images/virgo.svg" });
-            vm.Signs.Add("LIBRA", new SignPartialViewModel { Name = "Libra", Description = "writes to service bus queue which triggers azure function, using the same AI instance", Image = "/images/libra.svg" });
-            vm.Signs.Add("SCORPIO", new SignPartialViewModel { Name = "Scorpio", Description = "[calls a restful service that does lot and lots of stuff, including SQL database and Cosmos]", Image = " /images/scorpio.svg" });
-            vm.Signs.Add("SAGITTARIUS", new SignPartialViewModel { Name = "Sagittarius", Description = "[Like Taurus, also called from Availability Tests.  Occasionally takes a really long time]", Image = "/images/sagittarius.svg" });
-            vm.Signs.Add("CAPRICORN", new SignPartialViewModel { Name = "Capricorn", Description = "Starts an interactive UI journey (requires authentication)", Image = "/images/capricorn.svg" });
-            vm.Signs.Add("AQUARIUS", new SignPartialViewModel { Name = "Aquarius", Description = "calls a restful service that is instrumented with lots of custom metrics and stuff", Image = "/images/aquarius.svg" });
-            vm.Signs.Add("PISCES", new SignPartialViewModel { Name = "Pisces", Description = "calls a service that uses a lot of CPU", Image = "/images/pisces.svg" });
+            vm.Signs.Add("nemean-lion", new SignPartialViewModel { Name = "nemean-lion", 
+                FriendlyName= "Nemean Lion",
+                Description = "If Heracles slew the Nemean lion and returned alive within 30 days, the town would sacrifice a lion to Zeus, but if he did not a boy would sacrifice himself to Zeus. ",
+                TechnicalDescription = "Very simple. Calls iraklion/aries. Increments a custom metric and returns.",
+                Image = "/images/nemean-lion.jpg"
+            });
+            vm.Signs.Add("lernaean-hydra", new SignPartialViewModel { Name = "lernaean-hydra", 
+                FriendlyName = "Lernaean Hydra",
+                Description = "Heracles fired flaming arrows into the Hydra's lair and confronted the Hydra, wielding a harvesting sickle. Upon cutting off each of its heads he found that two grew back.", 
+                Image = "/images/lernaean-hydra.jpg"
+            });
+            vm.Signs.Add("ceryneian-hind", new SignPartialViewModel { Name = "ceryneian-hind",
+                FriendlyName = "Ceryneian Hind",
+                Description = "The Ceryneian Hind was so fast that it could outrun an arrow. Heracles chased it on foot for a full year.  He eventually trapped it with an arrow between its forelegs.", 
+                Image = "/images/ceryneian-hind.jpg"
+            });
+
+            vm.Signs.Add("erymanthian-boar", new SignPartialViewModel { Name = "erymanthian-boar",
+                Description = "Hercules was able to drive the fearful boar into snow where he captured the boar in a net and brought the boar to Eurystheus",
+                FriendlyName = "Erymanthian Boar",
+                TechnicalDescription = "Calls a RESTFul service that calls another RESTful service", Image = "/images/erymanthian-boar.jpg"
+            });
+
+            vm.Signs.Add("augean-stables", new SignPartialViewModel { Name = "augean-stables",
+                Description = "King Augeas had a stable which housed over 1,000 cattle. Hercules approached King Augeas and offered to clean the stables in one day and asked for a tenth of his cattle in return",
+                FriendlyName = "Augean Stables",
+                TechnicalDescription = "Writes a blob to Blob Storage", Image = "/images/augean-stables.jpg"
+            });
+
+            vm.Signs.Add("stymphalian-birds", new SignPartialViewModel { Name = "stymphalian-birds",
+                Description = "The birds were fierce man-eaters. Athena gave Hercules clapper to help him scare the birds. As the birds flew, Hercules shot them with his bow and arrow. Easy.",
+                FriendlyName = "Stymphalian Birds",
+                TechnicalDescription = "writes to service bus queue which triggers azure function, using a different AI instance", Image = "/images/stymphalian-birds.jpg"
+            });
+
+            vm.Signs.Add("cretan-bull", new SignPartialViewModel { Name = "cretan-bull",
+                Description = "This bull was destroying the city and scaring the residents. King Minos granted Hercules permission to take this bull away.  Hercules wrestled the bull to the ground and took to Eurystheus.",
+                FriendlyName = "Cretan Bull",
+                TechnicalDescription = "writes to service bus queue which triggers azure function, using the same AI instance", Image = "/images/cretan-bull.jpg"
+            });
+
+            vm.Signs.Add("mares-of-diomedes", new SignPartialViewModel { Name = "mares-of-diomedes",
+                Description = "King Diomedes of Thrace trained mares in his village to eat human flesh. Hercules would kill King Diomedes, feed the horses to calm them, and bring the horses back to Eurystheus.",
+                FriendlyName = "Mares of Diomedes",
+                TechnicalDescription = "[calls a restful service that does lot and lots of stuff, including SQL database and Cosmos]", Image = " /images/mares-of-diomedes.jpg"
+            });
+
+
+            vm.Signs.Add("belt-of-hippolyta", new SignPartialViewModel { Name = "belt-of-hippolyta",
+                Description = "Hercules told Hippolyta that he needed her belt to take back to Eurystheus. Hippolyta agreed to let Hercules have the belt. Hercules killed Hippolyta and returned with her belt.",
+                FriendlyName = "Belt of Hippolyta",
+                TechnicalDescription = "[Like Taurus, also called from Availability Tests.  Occasionally takes a really long time]", Image = "/images/belt-of-hippolyta.jpg"
+            });
+
+            vm.Signs.Add("cattle-of-geryon", new SignPartialViewModel { Name = "cattle-of-geryon",
+                Description = "Hercules travelled to Erytheia to retrieve the cattle. Along his way, he killed many beasts.  Hercules finally gathered the herd and took them to Eurystheus who sacrificed the herd of cattle to Hera.",
+                FriendlyName = "Cattle of Geryon",
+                TechnicalDescription = "Starts an interactive UI journey (requires authentication)", Image = "/images/cattle-of-geryon.jpg"
+            });
+
+            vm.Signs.Add("apples-of-hesperides", new SignPartialViewModel { Name = "apples-of-hesperides",
+                Description = "Hercules held up the heavens and earth while Atlas stole the apples. Atlas wanted to take the apples to Eurystheus, and Hercules agreed.  He then he asked Atlas to hold the heavens and earth while he adjusted his garments, but Hercules left and returned to Eurystheus to deliver the golden apples.",
+                FriendlyName = "Apples of Hesperides",
+                TechnicalDescription = "calls a restful service that is instrumented with lots of custom metrics and stuff", Image = "/images/apples-of-hesperides.jpg"
+            });
+
+            vm.Signs.Add("cerberus", new SignPartialViewModel { Name = "cerberus",
+                Description = "Hercules battled many beasts and monsters throughout the underworld until he reached Hades. Hercules asked Hades if he could take the Cerberus to the surface. Hades agreed, only if Hercules could restrain the beat with his bare hands and no weapons.",
+                FriendlyName = "Cerberus",
+                TechnicalDescription = "calls a service that uses a lot of CPU", Image = "/images/cerberus.jpg"
+            });
             return View(vm);
         }
 
@@ -62,131 +117,125 @@ namespace Chania.Controllers
             return View();
         }
 
-        public async Task<IActionResult> Scorpio()
+    
+        #region labours
+        [HttpGet, ActionName("mares-of-diomedes")]
+        public async Task<IActionResult> maresofdiomedes()
         {
             var traceGuid = Guid.NewGuid().ToString();
-            var vm = new ScorpioViewModel();
-            vm.ResponseData = await CallRestApi(_thessalonikiBaseUrl, $"api/scorpio?traceGuid={traceGuid}");
+            var vm = new GenericViewModel { LabourName = "mares-of-diomedes" };
+            vm.ResponseData = await CallRestApi(_thessalonikiBaseUrl, $"api/diomedes?traceGuid={traceGuid}");
             vm.TraceGuid = traceGuid;
-            return View("ScorpioResult", vm);
+            return View("GenericResult", vm);
+        }
+        [HttpGet, ActionName("nemean-lion")]
+        public async Task<IActionResult> nemeanlion()
+        {
+
+            var traceGuid = Guid.NewGuid().ToString();
+            var vm = new GenericViewModel { LabourName = "nemean-lion" };
+            vm.ResponseData = await CallRestApi(_iraklionBaseUrl, $"api/nemean?traceGuid={traceGuid}");
+            vm.TraceGuid = traceGuid;
+            return View("GenericResult", vm);
         }
 
-        public async Task<IActionResult> Aries()
-        {
-                       
-            var traceGuid = Guid.NewGuid().ToString();
-            var vm = new AriesViewModel();
-            vm.ResponseData = await CallRestApi(_iraklionBaseUrl, $"api/aries?traceGuid={traceGuid}");
-            vm.TraceGuid = traceGuid;
-            return View("AriesResult", vm);
-        }
-        public async Task<IActionResult> Libra()
+        [HttpGet, ActionName("cretan-bull")]
+        public async Task<IActionResult> cretanbull()
         {
             var traceGuid = Guid.NewGuid().ToString();
-            var vm = new LibraViewModel();
-            vm.ResponseData = await CallRestApi(_iraklionBaseUrl, $"api/libra?traceGuid={traceGuid}");
+            var vm = new GenericViewModel { LabourName = "cretan-bull" };
+            vm.ResponseData = await CallRestApi(_iraklionBaseUrl, $"api/cretan?traceGuid={traceGuid}");
             vm.TraceGuid = traceGuid;
-            return View("LibraResult", vm);
-        }
-        public IActionResult Capricorn()
-        {
-            var traceGuid = Guid.NewGuid().ToString();
-            var vm = new CapricornViewModel();
-            // vm.ResponseData = await CallRestApi(_iraklionBaseUrl, $"api/capricorn?traceGuid={traceGuid}");
-            vm.ResponseData = "This will be the user journey stuff";
-            vm.TraceGuid = traceGuid;
-            return RedirectToAction("Index", "Capricorn");
-            // return View("CapricornResult", vm);
+            return View("GenericResult", vm);
         }
 
-        public async Task<IActionResult> Sagittarius()
+        [HttpGet, ActionName("cattle-of-geryon")]
+        public IActionResult cattleofgeryon()
         {
             var traceGuid = Guid.NewGuid().ToString();
-            var vm = new SagittariusViewModel();
-            vm.ResponseData = await CallRestApi(_iraklionBaseUrl, $"api/sagittarius?traceGuid={traceGuid}");
-            vm.TraceGuid = traceGuid;
-            return View("SagittariusResult", vm);
+            return RedirectToAction("Index", "Geryon");
+           
         }
 
-        public async Task<IActionResult> Taurus()
+        [HttpGet, ActionName("belt-of-hippolyta")]
+        public async Task<IActionResult> beltofhyppolyta()
         {
             var traceGuid = Guid.NewGuid().ToString();
-            var vm = new TaurusViewModel();
-            vm.ResponseData = await CallRestApi(_iraklionBaseUrl, $"api/taurus?traceGuid={traceGuid}");
+            var vm = new GenericViewModel { LabourName = "belt-of-hippolyta" };
+            vm.ResponseData = await CallRestApi(_iraklionBaseUrl, $"api/hippolyta?traceGuid={traceGuid}");
             vm.TraceGuid = traceGuid;
-            return View("TaurusResult", vm);
+            return View("GenericResult", vm);
+        }
+        [HttpGet, ActionName("apples-of-hesperides")]
+        public async Task<IActionResult> applesofhesperides()
+        {
+            var traceGuid = Guid.NewGuid().ToString();
+            var vm = new GenericViewModel { LabourName = "apples-of-hesperides" };
+            vm.ResponseData = await CallRestApi(_iraklionBaseUrl, $"api/hesperides?traceGuid={traceGuid}");
+            vm.TraceGuid = traceGuid;
+            return View("GenericResult", vm);
+        }
+        [HttpGet, ActionName("lernaean-hydra")]
+        public async Task<IActionResult> lerneanhydra()
+        {
+            var traceGuid = Guid.NewGuid().ToString();
+            var vm = new GenericViewModel { LabourName = "leranaean-hydra" };
+            vm.ResponseData = await CallRestApi(_iraklionBaseUrl, $"api/lernaean?traceGuid={traceGuid}");
+            vm.TraceGuid = traceGuid;
+            return View("GenericResult", vm);
+        }
+        [HttpGet, ActionName("ceryneian-hind")]
+        public async Task<IActionResult> ceryneianhind()
+        {
+            var traceGuid = Guid.NewGuid().ToString();
+            var vm = new GenericViewModel { LabourName = "ceryneian-hind" };
+            vm.ResponseData = await CallRestApi(_thessalonikiBaseUrl, $"api/ceryneian?traceGuid={traceGuid}");
+            vm.TraceGuid = traceGuid;
+            return View("GenericResult", vm);
+        }
+        [HttpGet, ActionName("erymanthian-boar")]
+        public async Task<IActionResult> erymanthianboar()
+        {
+            var traceGuid = Guid.NewGuid().ToString();
+            var vm = new GenericViewModel { LabourName = "erymanthian-boar" };
+            vm.ResponseData = await CallRestApi(_iraklionBaseUrl, $"api/erymanthian?traceGuid={traceGuid}");
+            vm.TraceGuid = traceGuid;
+            return View("GenericResult", vm);
+        }
+        [HttpGet, ActionName("stymphalian-birds")]
+        public async Task<IActionResult> stymphalianbirds()
+        {
+            var traceGuid = Guid.NewGuid().ToString();
+            var vm = new GenericViewModel { LabourName = "stymphalian-birds" };
+            vm.ResponseData = await CallRestApi(_iraklionBaseUrl, $"api/stymphalian?traceGuid={traceGuid}");
+            vm.TraceGuid = traceGuid;
+            return View("GenericResult", vm);
+        }
+        [HttpGet, ActionName("augean-stables")]
+        public async Task<IActionResult> augeanstables()
+        {
+            var traceGuid = Guid.NewGuid().ToString();
+            var vm = new GenericViewModel { LabourName = "augean-stables" };
+            vm.ResponseData = await CallRestApi(_iraklionBaseUrl, $"api/augean?traceGuid={traceGuid}");
+            vm.TraceGuid = traceGuid;
+            return View("GenericResult", vm);
         }
 
-        public async Task<IActionResult> Gemini()
+        [HttpGet, ActionName("cerberus")]
+        public async Task<IActionResult> cerberus()
         {
             var traceGuid = Guid.NewGuid().ToString();
-            var vm = new GeminiViewModel();
-            vm.ResponseData = await CallRestApi(_thessalonikiBaseUrl, $"api/gemini?traceGuid={traceGuid}");
+            var vm = new GenericViewModel { LabourName = "cerberus" };
+            vm.ResponseData = await CallRestApi(_iraklionBaseUrl, $"api/cerberus?traceGuid={traceGuid}&cpumax=false");
             vm.TraceGuid = traceGuid;
-            return View("GeminiResult", vm);
-        }
-        public async Task<IActionResult> Cancer()
-        {
-            var traceGuid = Guid.NewGuid().ToString();
-            var vm = new CancerViewModel();
-            vm.ResponseData = await CallRestApi(_iraklionBaseUrl, $"api/cancer?traceGuid={traceGuid}");
-            vm.TraceGuid = traceGuid;
-            return View("CancerResult", vm);
-        }
-        public async Task<IActionResult> Virgo()
-        {
-            var traceGuid = Guid.NewGuid().ToString();
-            var vm = new VirgoViewModel();
-            vm.ResponseData = await CallRestApi(_iraklionBaseUrl, $"api/virgo?traceGuid={traceGuid}");
-            vm.TraceGuid = traceGuid;
-            return View("VirgoResult", vm);
-        }
-        public async Task<IActionResult> Leo()
-        {
-            var traceGuid = Guid.NewGuid().ToString();
-            var vm = new LeoViewModel();
-            vm.ResponseData = await CallRestApi(_iraklionBaseUrl, $"api/leo?traceGuid={traceGuid}");
-            vm.TraceGuid = traceGuid;
-            return View("LeoResult", vm);
-        }
-        public async Task<IActionResult> Pisces()
-        {
-            var traceGuid = Guid.NewGuid().ToString();
-            var vm = new PiscesViewModel();
-            vm.ResponseData = await CallRestApi(_iraklionBaseUrl, $"api/pisces?traceGuid={traceGuid}&cpumax=false");
-            vm.TraceGuid = traceGuid;
-            return View("PiscesResult", vm);
+            return View("GenericResult", vm);
         }
 
-        public async Task<IActionResult> Aquarius()
-        {
-            var traceGuid = Guid.NewGuid().ToString();
-            var vm = new AquariusViewModel();
-            vm.ResponseData = await CallRestApi(_iraklionBaseUrl, $"api/aquarius?traceGuid={traceGuid}");
-            vm.TraceGuid = traceGuid;
-            return View("AquariusResult", vm);
-        }
 
-       
-        public static void InvokeAsync(object parameters)
-        {
-            try
-            {
-                Parameters p = (Parameters)parameters;
-                Console.WriteLine(RestApi.Call(p.Url, p.Operation));
-            }
-            catch (Exception) { } // expect some exceptions as normal}
-        }
 
-        private static bool shouldMaxCPU()
-        {
-            int min = 1;
-            int max = 5;
-            Random random = new Random();
-            int index = random.Next(min, max);
-            if (index == 3) return true;
-            return false;
-        }
+        #endregion
+
+
 
         private async Task<string> CallRestApi(string _baseUrl, string api)
         {
@@ -210,7 +259,7 @@ namespace Chania.Controllers
                 }
                 else 
                 {
-                    throw new Exception($"Call to Restful service {_baseUrl}/{api} failed. {response.StatusCode.ToString()}");
+                    throw new Exception($"Call to Restful service {_baseUrl}{api} failed. {response.StatusCode.ToString()}");
                 }
                 return content;
             }

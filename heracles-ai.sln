@@ -6,7 +6,6 @@ MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{7D7B9BAE-B55C-4388-99A1-1A925F0414DF}"
 	ProjectSection(SolutionItems) = preProject
 		.github\workflows\deploy-all-componentised.yml = .github\workflows\deploy-all-componentised.yml
-		.github\workflows\deploy-all.yml = .github\workflows\deploy-all.yml
 		.github\workflows\deploy-chania.yml = .github\workflows\deploy-chania.yml
 		.github\workflows\deploy-heracles.yml = .github\workflows\deploy-heracles.yml
 		.github\workflows\deploy-ioannina.yml = .github\workflows\deploy-ioannina.yml
@@ -21,7 +20,6 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		deployment-scripts\deploy_patra_infra.sh = deployment-scripts\deploy_patra_infra.sh
 		deployment-scripts\deploy_thessaloniki_infra.sh = deployment-scripts\deploy_thessaloniki_infra.sh
 		deployment-scripts\encrypt_secret.js = deployment-scripts\encrypt_secret.js
-		.github\workflows\secret-test.yml = .github\workflows\secret-test.yml
 	EndProjectSection
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "heracles", "heracles\heracles.csproj", "{BADF424C-7820-4728-B63E-5C62AC62B21C}"
