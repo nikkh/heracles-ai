@@ -94,10 +94,10 @@ namespace Heracles.UI
         private void EnactSession(UISession session, int sessionNumber, ILogger log)
         {
             // Click the Go button
-            driver.Navigate().GoToUrl($"{_heraclesContext.BaseUrl}/capricorn");
+            driver.Navigate().GoToUrl($"{_heraclesContext.BaseUrl}/geryon");
             Thread.Sleep(3000);
-            log.LogDebug($"Session {sessionNumber}: Go to capricorn home page");
-            FindAndClick("capricorn-go", log);
+            log.LogDebug($"Session {sessionNumber}: Go to geryon home page");
+            FindAndClick("geryon-go", log);
             Think();
 
             for (int i = 0; i < session.Steps.Length - 1; i++)
@@ -112,7 +112,7 @@ namespace Heracles.UI
         {
             log.LogDebug($"Logging in user {user.Id}");
             // Click Capricorn Option (causes ADD Login)
-            FindAndClick("action-Capricorn", log);
+            FindAndClick("action-cattle-of-geryon", log);
             Think();
 
             // Fill in email address and click next.

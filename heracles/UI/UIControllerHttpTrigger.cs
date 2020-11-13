@@ -11,14 +11,10 @@ namespace Heracles.UI
 {
     public class UIControllerHttpTrigger
     {
-
         private readonly HeraclesContext _heraclesContext;
-       
-
         public UIControllerHttpTrigger(IConfiguration config, HeraclesContext heraclesContext)
         {
             _heraclesContext = heraclesContext;
-            
         }
 
         [FunctionName("UIControllerHttpTrigger")]

@@ -7,12 +7,12 @@ namespace Iraklion.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class HyppolytaController : ControllerBase
+    public class HippolytaController : ControllerBase
     {
         private readonly ILogger _logger;
         private readonly TelemetryClient _telemetryClient;
 
-        public HyppolytaController(ILogger<HyppolytaController> logger, TelemetryClient telemetryClient)
+        public HippolytaController(ILogger<HippolytaController> logger, TelemetryClient telemetryClient)
         {
             _logger = logger;
             _telemetryClient = telemetryClient;
@@ -26,7 +26,7 @@ namespace Iraklion.Controllers
         [HttpGet]
         public ActionResult<string> Get(string traceGuid)
         {
-            const string controllerName = "belt-of-hyppolyta";
+            const string controllerName = "belt-of-hippolyta";
 
             var metricName = $"{controllerName}Transactions";
             var message = $"{controllerName} has been invoked. TraceGuid={traceGuid}";
@@ -38,10 +38,10 @@ namespace Iraklion.Controllers
             var minute = System.DateTime.Now.Minute;
             if ((hour == 8) && (minute <31))
             {
-                _logger.LogInformation($"hyppolyta will sleep for 39 seconds!");
+                _logger.LogInformation($"hippolyta will sleep for 39 seconds!");
                 Thread.Sleep(39000);
             }
-            return "Hello World from hyppolyta!";
+            return "Hello World from hippolyta!";
         }
 
        

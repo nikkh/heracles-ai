@@ -11,6 +11,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
 using Chania.Models;
 using Chania.Utils;
+using Microsoft.AspNetCore.Hosting;
 
 namespace Chania.Controllers
 {
@@ -23,14 +24,32 @@ namespace Chania.Controllers
         const string iraklionUrlKey = "IraklionBaseUrl";
         const string scorpioUrlKey = "ThessalonikiBaseUrl";
         private readonly TelemetryClient _telemetryClient;
+        private readonly IWebHostEnvironment _hostingEnvironment;
 
-        public HomeController(ILogger<HomeController> logger, IConfiguration configuration, TelemetryClient telemetryClient)
+        public HomeController(ILogger<HomeController> logger, IConfiguration configuration, TelemetryClient telemetryClient, IWebHostEnvironment hostingEnvironment)
         {
             _logger = logger;
             _configuration = configuration;
             _iraklionBaseUrl = _configuration[iraklionUrlKey];
             _thessalonikiBaseUrl = _configuration[scorpioUrlKey];
             _telemetryClient = telemetryClient;
+            _hostingEnvironment = hostingEnvironment;
+        }
+
+        private string GetTechnicalDescription(string itemName) 
+        {
+            
+            try
+            {
+                var content = System.IO.File.ReadAllText($"{_hostingEnvironment.WebRootPath}//TechnicalDescriptions/{itemName}.html");
+                return content;
+            }
+            catch (Exception e)
+            {
+                _logger.LogError(e.ToString());
+                return $"No technical description has yet been authored for {itemName}";
+            }
+
         }
 
         public IActionResult Index()
@@ -40,73 +59,85 @@ namespace Chania.Controllers
             vm.Signs.Add("nemean-lion", new SignPartialViewModel { Name = "nemean-lion", 
                 FriendlyName= "Nemean Lion",
                 Description = "If Heracles slew the Nemean lion and returned alive within 30 days, the town would sacrifice a lion to Zeus, but if he did not a boy would sacrifice himself to Zeus. ",
-                TechnicalDescription = "Very simple. Calls iraklion/aries. Increments a custom metric and returns.",
+                TechnicalDescription = GetTechnicalDescription("nemean-lion"),
                 Image = "/images/nemean-lion.jpg"
             });
-            vm.Signs.Add("lernaean-hydra", new SignPartialViewModel { Name = "lernaean-hydra", 
+            vm.Signs.Add("lernaean-hydra", new SignPartialViewModel { Name = "lernaean-hydra",
                 FriendlyName = "Lernaean Hydra",
-                Description = "Heracles fired flaming arrows into the Hydra's lair and confronted the Hydra, wielding a harvesting sickle. Upon cutting off each of its heads he found that two grew back.", 
+                Description = "Heracles fired flaming arrows into the Hydra's lair and confronted the Hydra, wielding a harvesting sickle. Upon cutting off each of its heads he found that two grew back.",
+                TechnicalDescription = GetTechnicalDescription("lernaean-hydra"),
                 Image = "/images/lernaean-hydra.jpg"
-            });
+            }); ;
+           
             vm.Signs.Add("ceryneian-hind", new SignPartialViewModel { Name = "ceryneian-hind",
                 FriendlyName = "Ceryneian Hind",
-                Description = "The Ceryneian Hind was so fast that it could outrun an arrow. Heracles chased it on foot for a full year.  He eventually trapped it with an arrow between its forelegs.", 
+                Description = "The Ceryneian Hind was so fast that it could outrun an arrow. Heracles chased it on foot for a full year.  He eventually trapped it with an arrow between its forelegs.",
+                TechnicalDescription = GetTechnicalDescription("ceryneian-hind"),
                 Image = "/images/ceryneian-hind.jpg"
-            });
+            }) ;
 
             vm.Signs.Add("erymanthian-boar", new SignPartialViewModel { Name = "erymanthian-boar",
                 Description = "Hercules was able to drive the fearful boar into snow where he captured the boar in a net and brought the boar to Eurystheus",
                 FriendlyName = "Erymanthian Boar",
-                TechnicalDescription = "Calls a RESTFul service that calls another RESTful service", Image = "/images/erymanthian-boar.jpg"
+                TechnicalDescription = GetTechnicalDescription("erymanthian-boar"),
+                Image = "/images/erymanthian-boar.jpg"
             });
 
             vm.Signs.Add("augean-stables", new SignPartialViewModel { Name = "augean-stables",
                 Description = "King Augeas had a stable which housed over 1,000 cattle. Hercules approached King Augeas and offered to clean the stables in one day and asked for a tenth of his cattle in return",
                 FriendlyName = "Augean Stables",
-                TechnicalDescription = "Writes a blob to Blob Storage", Image = "/images/augean-stables.jpg"
+                TechnicalDescription = GetTechnicalDescription("augean-stables"),
+                Image = "/images/augean-stables.jpg"
             });
 
             vm.Signs.Add("stymphalian-birds", new SignPartialViewModel { Name = "stymphalian-birds",
                 Description = "The birds were fierce man-eaters. Athena gave Hercules clapper to help him scare the birds. As the birds flew, Hercules shot them with his bow and arrow. Easy.",
                 FriendlyName = "Stymphalian Birds",
-                TechnicalDescription = "writes to service bus queue which triggers azure function, using a different AI instance", Image = "/images/stymphalian-birds.jpg"
+                TechnicalDescription = GetTechnicalDescription("stymphalian-birds"),
+                Image = "/images/stymphalian-birds.jpg"
             });
 
             vm.Signs.Add("cretan-bull", new SignPartialViewModel { Name = "cretan-bull",
                 Description = "This bull was destroying the city and scaring the residents. King Minos granted Hercules permission to take this bull away.  Hercules wrestled the bull to the ground and took to Eurystheus.",
                 FriendlyName = "Cretan Bull",
-                TechnicalDescription = "writes to service bus queue which triggers azure function, using the same AI instance", Image = "/images/cretan-bull.jpg"
+                TechnicalDescription = GetTechnicalDescription("cretan-bull"),
+                Image = "/images/cretan-bull.jpg"
             });
 
             vm.Signs.Add("mares-of-diomedes", new SignPartialViewModel { Name = "mares-of-diomedes",
                 Description = "King Diomedes of Thrace trained mares in his village to eat human flesh. Hercules would kill King Diomedes, feed the horses to calm them, and bring the horses back to Eurystheus.",
                 FriendlyName = "Mares of Diomedes",
-                TechnicalDescription = "[calls a restful service that does lot and lots of stuff, including SQL database and Cosmos]", Image = " /images/mares-of-diomedes.jpg"
+                TechnicalDescription = GetTechnicalDescription("mares-of-diomedes"),
+                Image = " /images/mares-of-diomedes.jpg"
             });
 
 
             vm.Signs.Add("belt-of-hippolyta", new SignPartialViewModel { Name = "belt-of-hippolyta",
                 Description = "Hercules told Hippolyta that he needed her belt to take back to Eurystheus. Hippolyta agreed to let Hercules have the belt. Hercules killed Hippolyta and returned with her belt.",
                 FriendlyName = "Belt of Hippolyta",
-                TechnicalDescription = "[Like Taurus, also called from Availability Tests.  Occasionally takes a really long time]", Image = "/images/belt-of-hippolyta.jpg"
+                TechnicalDescription = GetTechnicalDescription("belt-of-hippolyta"),
+                Image = "/images/belt-of-hippolyta.jpg"
             });
 
             vm.Signs.Add("cattle-of-geryon", new SignPartialViewModel { Name = "cattle-of-geryon",
                 Description = "Hercules travelled to Erytheia to retrieve the cattle. Along his way, he killed many beasts.  Hercules finally gathered the herd and took them to Eurystheus who sacrificed the herd of cattle to Hera.",
                 FriendlyName = "Cattle of Geryon",
-                TechnicalDescription = "Starts an interactive UI journey (requires authentication)", Image = "/images/cattle-of-geryon.jpg"
+                TechnicalDescription = GetTechnicalDescription("cattle-of-geryon"),
+                Image = "/images/cattle-of-geryon.jpg"
             });
 
             vm.Signs.Add("apples-of-hesperides", new SignPartialViewModel { Name = "apples-of-hesperides",
                 Description = "Hercules held up the heavens and earth while Atlas stole the apples. Atlas wanted to take the apples to Eurystheus, and Hercules agreed.  He then he asked Atlas to hold the heavens and earth while he adjusted his garments, but Hercules left and returned to Eurystheus to deliver the golden apples.",
                 FriendlyName = "Apples of Hesperides",
-                TechnicalDescription = "calls a restful service that is instrumented with lots of custom metrics and stuff", Image = "/images/apples-of-hesperides.jpg"
+                TechnicalDescription = GetTechnicalDescription("apples-of-hesperides"),
+                Image = "/images/apples-of-hesperides.jpg"
             });
 
             vm.Signs.Add("cerberus", new SignPartialViewModel { Name = "cerberus",
                 Description = "Hercules battled many beasts and monsters throughout the underworld until he reached Hades. Hercules asked Hades if he could take the Cerberus to the surface. Hades agreed, only if Hercules could restrain the beat with his bare hands and no weapons.",
                 FriendlyName = "Cerberus",
-                TechnicalDescription = "calls a service that uses a lot of CPU", Image = "/images/cerberus.jpg"
+                TechnicalDescription = GetTechnicalDescription("cerberus"),
+                Image = "/images/cerberus.jpg"
             });
             return View(vm);
         }
