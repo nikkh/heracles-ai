@@ -54,7 +54,8 @@ az functionapp config appsettings delete --name $functionAppName --resource-grou
 az monitor app-insights component delete --app $functionAppName -g $resourceGroupName >> $output_blob
 
 echo "Updating App Settings for $functionAppName"
-settings="ServiceBusConnection=$iraklionServiceBusConnectionString"
+settings="ServiceBusConnection=$iraklionServiceBusConnectionString WEBSITE_WEBDEPLOY_USE_SCM=true" 
+
 echo "<p>Function App Settings:" >> $output_blob
 
 az webapp config appsettings set -g $resourceGroupName -n $functionAppName --settings "$settings"  >> $output_blob
