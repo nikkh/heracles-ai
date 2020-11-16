@@ -63,6 +63,8 @@ ApplicationInsightsAgent_EXTENSION_VERSION='~2'
 echo "Updating App Settings for $webAppName"
 echo "<p>Web App Settings:" >> $output_blob
  az webapp config appsettings set -g $resourceGroupName -n $webAppName --settings IraklionBaseUrl=$iraklionBaseUrl ThessalonikiBaseUrl=$thessalonikiBaseUrl ASPNETCORE_ENVIRONMENT=Development AzureAD__Domain=$AAD_DOMAIN AzureAD__TenantId=$AAD_TENANTID AzureAD__ClientId=$AAD_CLIENTID APPLICATIONINSIGHTS_CONNECTION_STRING=$APPLICATIONINSIGHTS_CONNECTION_STRING APPINSIGHTS_INSTRUMENTATIONKEY=$APPINSIGHTS_INSTRUMENTATIONKEY ApplicationInsightsAgent_EXTENSION_VERSION=$ApplicationInsightsAgent_EXTENSION_VERSION >> $output_blob
+echo "<p>Availability Test:" >> $output_blob
+az group deployment create -g $resourceGroupName --template-file deployment-scripts/chania-webtest.json --parameters webSiteName=$webAppName aiName=$webAppName >> $output_blob
 echo "</p>" >> $output_blob
 if [ "$HERACLES_OUTPUT_LOGGING" = TRUE ]; then
  cat $output_blob
