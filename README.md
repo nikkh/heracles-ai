@@ -3,14 +3,25 @@
 Heracles is a microservices application that has evolved over the course of 2020 to generate telemetry for understanding and demonstrating Microsoft Application Insights.
 
 Introduction
-- [Heracles Application](herecles-application.md)
+- [Heracles Application](heracles-application.md)
 - [Microservice Descriptions](microservice-descriptions.md)
 - [Deploying Heracles](deploying-heracles.md)
 
 Data Generation
-- Synthetic Transactions
-- User Traffic
-- Availability Tests
+- [Synthetic Transactions](data-gen-synthetic.md)
+- [User Traffic](data-gen-user-traffic.md)
+- [Availability Tests](data-gen-availability-tests.md)
 
 Exploring Application Insights
-    - Indented item
+- [Dashboards](ai-dashboards.md)
+- [Application Map](ai-application-map.md)
+- [Smart Detection](ai-smart-detection.md)
+- [Live Metrics](ai-live-metrics.md)
+- [Failures](ai-failures.md)
+- [Performance](ai-perfromance.md)
+- [Availability](ai-availability.md)
+- [Users](ai-users.md)
+- [Metrics](ai-metrics.md)
+- [Log Analytics](ai-log-analytics.md)
+- [Workbooks](ai-workbooks.md)
+- [Costs](ai-costs.md)
