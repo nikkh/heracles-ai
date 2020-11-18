@@ -25,3 +25,7 @@ Exploring Application Insights
 - [Log Analytics](ai-log-analytics.md)
 - [Workbooks](ai-workbooks.md)
 - [Costs](ai-costs.md)
+
+So there it is!  Create a 6 microservice application with a single click, generate synthetic transactions and user traffic automatically, then explore the key features of application insights.  I hope this is useful.
+
+--Nick
