@@ -4,14 +4,14 @@
 
 Deploying Heracles is easy.  Follow these simple steps:
 
-## Service Principal for GitHub Actions
+## Create a Service Principal for GitHub Actions
 The actions in this repo create all the resources necessary to run the TimeHelper application in a new resource group in one of your subscription.  In order to do that we need Azure credentials with contributor rights to the subscription where you will host. Run the following command in Azure CLI and copy the resultant json output to your clipboard
 
 `az ad sp create-for-rbac --name "myApp" --role contributor --scopes /subscriptions/{subscription-id} --sdk-auth`
 
 Then create GitHub secret called AZURE_CREDENTIALS and paste the json content generated above into the value field for the secret. [see here for more details](https://github.com/Azure/login#configure-deployment-credentials)
 
-## Other GitHub Secrets
+## Create Other GitHub Secrets
 
 There are a couple of other secrets you need to define in GitHub:
 
@@ -26,4 +26,6 @@ This is a Personal Access Token to allow the GitHub actions to access your repo.
 
 > I dont think you actually need this.  I think instead you can directly reference ${{ secrets.GITHUB_TOKEN }} but I didn't have time to test it yet.
 
+## Initiate Deployment
 
+To initiate the deployment, choose the *Actions* tab at the top of the repo screen.   
