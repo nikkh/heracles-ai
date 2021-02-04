@@ -17,4 +17,4 @@ Ioaninna and Patra are Azure functions that read from thier own dedicated queue 
 
 Heracles is a traffic generator service.  By default, Heracles will generate traffic on a schedule, but it can also be triggered by a HTTP Get (again useful in demos).  Herecles also generates synthetic user traffic using [Selenium Webdriver](https://www.selenium.dev/) (deployed on a custom container in Azure Functions) to log onto Chania and click around the web interface.  This is useful for generating Web Analytics in Application Insights.
 
-For more in depth descriptions of the components see [Microservice Descriptions](docs/intro/microservice-descriptions.md).
+For more in depth descriptions of the components see [Microservice Descriptions](microservice-descriptions.md).
