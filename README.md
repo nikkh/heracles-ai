@@ -2,4 +2,4 @@
 
 heracles-ai is an artificial application that generates monitoring data to allow learning and evaluation of Azure Monitor Application Insights. Heracles is a fully automated (single-click) deployment of a six micro-service application using GitHub actions.
 
-[Take a look at the documentation](docs/homepage.md)
+[Take a look at the documentation](docs/homepage.md).
