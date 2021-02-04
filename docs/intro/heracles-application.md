@@ -8,4 +8,4 @@ The Heracles application doesn't really do anything.  Each of the Labours of Her
 
 This is particularly useful when demonstrating Live Metrics interactively, but the deployment also automtically generates synthetic transactions by regularly invoking the each of the labours, so that you've always got a living application insights data set to explore. You can see the [demo instance](https://hercchania-web.azurewebsites.net) of the application.
 
-[Take a look at the Architecture](heracles-architecture.md)
+[Take a look at the Architecture](heracles-architecture.md) or [See how to deploy your own instance](deploying-heracles.md)
