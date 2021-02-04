@@ -11,5 +11,5 @@ The actions in this repo create all the resources necessary to run the TimeHelpe
 
 Then create GitHub secret called AZURE_CREDENTIALS and paste the json content generated above into the value field for the secret. [see here for more details](https://github.com/Azure/login#configure-deployment-credentials)
 
-## 
+## Other GitHub Secrets
 
