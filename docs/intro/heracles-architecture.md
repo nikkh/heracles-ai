@@ -8,8 +8,8 @@ The Herecles architecture is intentionally quite complex.  The intent here is to
 The visible web application is Chania. This is a simple aspnet core application that calls services in other APIs in order to complete the Labours of Heracles.  This web application has is own dedicated Application Insights instance.
 
 There are two APIs:
- - thessaloniki
- - iraklion
+ - [Thessaloniki](https://thessaloniki-api.azurewebsites.net/index.html)
+ - [Iraklion](https://herciraklion-api.azurewebsites.net/index.html)
  
 Both have separate Application Insights instances. Thessaloniki is a dotnet core application running on a Windows app service. Iraklion is a dotnet core application running on app service for linux containers. Both APIs will call into [{JSON} Placeholder](https://jsonplaceholder.typicode.com/) which simulates a dependency on an external service.  Thessaloniki accesses an Azure SQL database.
 
