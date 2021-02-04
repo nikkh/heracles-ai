@@ -52,3 +52,8 @@ Leave set to False.
 ### pending delete?
 Set to False.
 
+# Watch the Deployment Video
+
+There is a short (6 minute) video that shows the deployment in action:
+
+[![link to deployment video](../images/xdeployment-video-screenshot.jpg)](https://hercheracles29447.blob.core.windows.net/media/heracles-ai-deploy.mp4)
