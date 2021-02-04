@@ -4,9 +4,12 @@
 
 Deploying Heracles is easy.  Follow these simple steps:
 
-1. Greate a service account with contributor rights to your subscription
-1. Update GitHub secrets in your forked repo
-1. Execute the [Deploy Heracles Workflow] ()
+## Service Principal for GitHub Actions
+The actions in this repo create all the resources necessary to run the TimeHelper application in a new resource group in one of your subscription.  In order to do that we need Azure credentials with contributor rights to the subscription where you will host. Run the following command in Azure CLI and copy the resultant json output to your clipboard
 
+`az ad sp create-for-rbac --name "myApp" --role contributor --scopes /subscriptions/{subscription-id} --sdk-auth`
 
+Then create GitHub secret called AZURE_CREDENTIALS and paste the json content generated above into the value field for the secret. [see here for more details](https://github.com/Azure/login#configure-deployment-credentials)
+
+## 
 
