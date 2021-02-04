@@ -6,6 +6,7 @@ Heracles is a microservices application that has evolved over the course of 2020
 
 Introduction
 - [Heracles Application](heracles-application.md)
+- [Architecture](heracles-architecture.md)
 - [Microservice Descriptions](microservice-descriptions.md)
 - [Deploying Heracles](deploying-heracles.md)
 
