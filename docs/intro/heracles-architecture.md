@@ -2,7 +2,7 @@
 
 The Herecles architecture is intentionally quite complex.  The intent here is to demonstrate how Application Insights help you to instrument your complex applications, and "Hello World" isn't really going to cut it.
 <p align="center">
-  <img src="../../images/heracles-architecture.jpg" />
+  <img src="../../images/heracles-architecture.png" />
 </p>
 
 The visible web application is Chania. This is a simple aspnet core application that calls services in other APIs in order to complete the Labours of Heracles.  This web application has is own dedicated Application Insights instance.
