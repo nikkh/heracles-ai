@@ -27,7 +27,6 @@ env:
    HERACLES_PAT: ${{ secrets.HERACLES_PAT }}
 
    DB_ADMIN_PASSWORD: ${{ secrets.DB_ADMIN_PASSWORD }}
-   AAD_PASSWORD: ${{ secrets.AAD_PASSWORD }}
    DB_ADMIN_USER: nick
    AAD_DOMAIN: xekina.onmicrosoft.com
    AAD_TENANTID: 3bc03625-3a0a-48c5-8aa5-12f22e401fff
