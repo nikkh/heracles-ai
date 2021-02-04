@@ -2,12 +2,7 @@
 
 # Heracles
 
-Heracles is a microservices application that has evolved over the course of 2020 to generate telemetry for understanding and demonstrating Microsoft Application Insights.
-
-| Syntax      | Description |
-| ----------- | ----------- |
-| Header      | Title       |
-| Paragraph   | Text        |
+Heracles is a microservices application that has evolved over the course of 2020/1 to generate telemetry for understanding and demonstrating Microsoft Application Insights. You should be able to deploy the full application, configured, working and geenrating application issights, with a single click (well almost).
 
 Introduction
 - [Heracles Application](heracles-application.md)
