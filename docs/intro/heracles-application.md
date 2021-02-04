@@ -1,1 +1,1 @@
-"# Heracles Application" 
+# Heracles Application 
