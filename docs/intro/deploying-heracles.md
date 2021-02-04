@@ -28,4 +28,27 @@ This is a Personal Access Token to allow the GitHub actions to access your repo.
 
 ## Initiate Deployment
 
-To initiate the deployment, choose the *Actions* tab at the top of the repo screen.   
+To initiate the deployment, choose the *Actions* tab at the top of the repo screen.  In the list of workflows, choose *Deploy Heracles* and on the right choose *Run Workflow*.  An invite screen will appear to capture parameters for this deployment:
+
+<p align="center">
+  <img src="../images/inititate-deployment.jpg" />
+</p>
+
+Fill out the the parameters as follows:
+
+### Application alias
+The application alias is important. IT is used as a stem when naming the Azure resources that will be created. Choose something unique, it should be about 6 characters in length, and lower case alphameric.  For the demo instance I chose 'herc'. 
+> This will be used as part of the storage account names - which have very rigorous constraints - hence the need for lower case.  
+
+### Location
+The Azure location where the resources will be deployed.  uksouth, ukwest, northeurope or any other valid Azure data centre.
+
+### Instance Name
+The instance name is stored as a tag against all resource groups.  It's important for me where I have multiple instances of the application deployed, and it let's me work with groups of resources together.  If you only plan on deploying once, leaving the Instance Name as Lucky_Jim would be fine.
+
+### debug output?
+Leave set to False.
+
+### pending delete?
+Set to False.
+
