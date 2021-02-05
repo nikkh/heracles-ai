@@ -27,6 +27,16 @@ Exploring Application Insights
 - [Workbooks](demo/ai-workbooks.md)
 - [Costs](demo/ai-costs.md)
 
-So there it is!  Create a 6 microservice application with a single click, generate synthetic transactions and user traffic automatically, then explore the key features of application insights.  I hope this is useful.
+Challenges
+- [Diagnose an Exception](demo/challenges/diagnose-exception.md)
+- [Add Availability Monitoring](demo/challenges/availability-monitoring.md)
+- [Add an alert](demo/challenges/add-alert.md)
+- [Export to Power BI](demo/challenges/export-powerbi.md)
+- [Negative Monitoting](demo/challenges/negative-monitoring.md)
+- [Converting to Workspace-based monitoring](demo/challenges/workspace-based.md)
 
---Nick
+So there it is!  Create a 6 microservice application with a single click, generate synthetic transactions and user traffic automatically, then explore the key features of application insights.  Demos to show to your colleagues and challenges for further exploration.  
+
+Please feel free to submit pull requests with your enhancements. We hope this is useful.
+
+--Nick & vincent
