@@ -28,12 +28,12 @@ Exploring Application Insights
 - [Costs](demo/ai-costs.md)
 
 Challenges
-- [Diagnose an Exception](demo/challenges/diagnose-exception.md)
-- [Add Availability Monitoring](demo/challenges/availability-monitoring.md)
-- [Add an alert](demo/challenges/add-alert.md)
-- [Export to Power BI](demo/challenges/export-powerbi.md)
-- [Negative Monitoting](demo/challenges/negative-monitoring.md)
-- [Converting to Workspace-based monitoring](demo/challenges/workspace-based.md)
+- [Diagnose an Exception](challenges/diagnose-exception.md)
+- [Add Availability Monitoring](challenges/availability-monitoring.md)
+- [Add an alert](challenges/add-alert.md)
+- [Export to Power BI](challenges/export-powerbi.md)
+- [Negative Monitoting](challenges/negative-monitoring.md)
+- [Converting to Workspace-based monitoring](challenges/workspace-based.md)
 
 So there it is!  Create a 6 microservice application with a single click, generate synthetic transactions and user traffic automatically, then explore the key features of application insights.  Demos to show to your colleagues and challenges for further exploration.  
 
