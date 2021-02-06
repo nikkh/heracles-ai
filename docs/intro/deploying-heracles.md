@@ -56,4 +56,4 @@ Set to False.
 
 There is a short (6 minute) video that shows the deployment in action:
 
-[![link to deployment video](../images/xdeployment-video-screenshot.jpg)](https://hercheracles29447.blob.core.windows.net/media/heracles-ai-deploy.mp4)
+[![link to deployment video](../images/xdeployment-video-screenshot.jpg)](https://hercheracles29790.blob.core.windows.net/media/heracles-ai-deploy.mp4)
