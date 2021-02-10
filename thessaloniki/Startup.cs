@@ -38,9 +38,9 @@ namespace Thessaloniki
             var aiOptions = new Microsoft.ApplicationInsights.AspNetCore.Extensions.ApplicationInsightsServiceOptions();
             aiOptions.EnableAdaptiveSampling = false;
             aiOptions.InstrumentationKey = appInsightsKey;
-            services.AddApplicationInsightsTelemetry(aiOptions);        
-
-        }
+            services.AddApplicationInsightsTelemetry(aiOptions);
+        
+}
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)
@@ -62,7 +62,7 @@ namespace Thessaloniki
             // specifying the Swagger JSON endpoint.
             app.UseSwaggerUI(c =>
             {
-                c.SwaggerEndpoint("/swagger/v1/swagger.json", "Limone");
+                c.SwaggerEndpoint("/swagger/v1/swagger.json", "thessalloniki");
                 c.RoutePrefix = string.Empty;
             });
             app.UseMvc();
