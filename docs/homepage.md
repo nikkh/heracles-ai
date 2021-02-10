@@ -40,4 +40,4 @@ So there it is!  Create a 6 microservice application with a single click, genera
 
 Please feel free to submit pull requests with your enhancements. We hope this is useful.
 
---Nick & vincent
+--Nick & Vincent
