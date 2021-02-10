@@ -8,4 +8,4 @@ The unified diagnostics experience automatically correlates server-side telemetr
 
 There is a short (6 minute) video that shows failure diagnosis in action:
 
-[![link to failure diagnosis video](../images/failure-demo.jpg)](https://hercheracles29790.blob.core.windows.net/media/Heracles-Demos-Live-Metrics.mp4)
+[![link to failure diagnosis video](../images/failures-demo.jpg)](https://hercheracles29790.blob.core.windows.net/media/Heracles-Demos-Live-Metrics.mp4)
