@@ -9,7 +9,7 @@ on:
         description: 'Iraklion Alias'     
         required: true
 env:
-   HERACLES_PAT: ${{ secrets.HERACLES_PAT }}
+   HERACLES_PAT: ${{ secrets.GITHUB_TOKEN }}
    HERACLES_ALIAS: ${{ github.event.inputs.heracles_alias }}
    IRAKLION_ALIAS: ${{ github.event.inputs.iraklion_alias }}  
 jobs:

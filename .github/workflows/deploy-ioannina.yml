@@ -6,7 +6,7 @@ on:
         description: 'Ioannina Alias'     
         required: true
 env:
-   HERACLES_PAT: ${{ secrets.HERACLES_PAT }}
+   HERACLES_PAT: ${{ secrets.GITHUB_TOKEN }}
    IOANNINA_ALIAS: ${{ github.event.inputs.ioannina_alias }}  
 jobs:
   job1:
