@@ -6,7 +6,7 @@ on:
         description: 'Chania Alias'     
         required: true
 env:
-   HERACLES_PAT: ${{ secrets.GITHUB_TOKEN }}
+   HERACLES_PAT: ${{ secrets.HERACLES_PAT }}
    CHANIA_ALIAS: ${{ github.event.inputs.chania_alias }}  
 jobs:
   job1:

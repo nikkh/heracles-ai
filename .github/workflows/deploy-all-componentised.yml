@@ -24,7 +24,7 @@ on:
         required: true
         default: 'true'
 env:
-   HERACLES_PAT: ${{ secrets.GITHUB_TOKEN }}
+   HERACLES_PAT: ${{ secrets.HERACLES_PAT }}
 
    DB_ADMIN_PASSWORD: ${{ secrets.DB_ADMIN_PASSWORD }}
    DB_ADMIN_USER: nick
@@ -128,7 +128,7 @@ jobs:
       uses: benc-uk/workflow-dispatch@v1
       with:
         workflow: Chania Microservice
-        token: ${{ secrets.GITHUB_TOKEN }}
+        token: ${{ secrets.HERACLES_PAT }}
         inputs: '{ "chania_alias": "${{ env.CHANIA_ALIAS }}" }'
   job4:
     name: Initiate Ioannina Deployment
@@ -140,7 +140,7 @@ jobs:
       uses: benc-uk/workflow-dispatch@v1
       with:
         workflow: Ioannina Microservice
-        token: ${{ secrets.GITHUB_TOKEN }}
+        token: ${{ secrets.HERACLES_PAT }}
         inputs: '{ "ioannina_alias": "${{ env.IOANNINA_ALIAS }}"}'
   job5:
     name: Initiate Patra Deployment
@@ -152,7 +152,7 @@ jobs:
       uses: benc-uk/workflow-dispatch@v1
       with:
         workflow: Patra Microservice
-        token: ${{ secrets.GITHUB_TOKEN }}
+        token: ${{ secrets.HERACLES_PAT }}
         inputs: '{ "patra_alias": "${{ env.PATRA_ALIAS }}"}'
   job6:
     name: Initiate Thessaloniki Deployment
@@ -164,7 +164,7 @@ jobs:
       uses: benc-uk/workflow-dispatch@v1
       with:
         workflow: Thessaloniki Microservice
-        token: ${{ secrets.GITHUB_TOKEN }}
+        token: ${{ secrets.HERACLES_PAT }}
         inputs: '{ "thessaloniki_alias": "${{ env.THESSALONIKI_ALIAS }}"}'
   job7:
     name: Inititate Iraklion Deployment
@@ -176,7 +176,7 @@ jobs:
       uses: benc-uk/workflow-dispatch@v1
       with:
         workflow: Iraklion Microservice
-        token: ${{ secrets.GITHUB_TOKEN }}
+        token: ${{ secrets.HERACLES_PAT }}
         inputs: '{ "heracles_alias": "${{ env.HERACLES_ALIAS }}", "iraklion_alias": "${{ env.IRAKLION_ALIAS }}"}'
   job8:
     name: Initiate Heracles Deployment
@@ -188,5 +188,5 @@ jobs:
       uses: benc-uk/workflow-dispatch@v1
       with:
         workflow: Heracles Microservice
-        token: ${{ secrets.GITHUB_TOKEN }}
+        token: ${{ secrets.HERACLES_PAT }}
         inputs: '{ "heracles_alias": "${{ env.HERACLES_ALIAS }}" }'

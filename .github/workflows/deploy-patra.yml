@@ -6,7 +6,7 @@ on:
         description: 'Patra Alias'     
         required: true
 env:
-   HERACLES_PAT: ${{ secrets.GITHUB_TOKEN }}
+   HERACLES_PAT: ${{ secrets.HERACLES_PAT }}
    PATRA_ALIAS: ${{ github.event.inputs.patra_alias }}  
 jobs:
   job1:
