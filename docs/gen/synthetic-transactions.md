@@ -13,6 +13,6 @@ The two functions we are interested in are:
 
 HereclesGeneratorTimerTrigger fires every 5 minutes and geenrates a random number of transactions, for a random set of Labours.  This gives consistent but different monitoring every time, similar enought that you can learn, but different enough to provide variety in what we see.
 
-You can also [mnaually trigger a generation](manually-trigger-generation.md) run using a browser.
+You can also [manually trigger a generation](manually-trigger-generation.md) run using a browser.
 
 
