@@ -15,4 +15,4 @@ You can now construct your request url:
 
 `https://<your-alias>hercles-gen-func.azurewebsites.net/api/HeraclesGeneratorHttpTrigger?code=<your-key>&NumberOfCalls=30`
   
-Paste this url into your browser and press enter.  After a little while, you should see a success message "HeraclesGenerator generated 30 requests". You can add the result page to browser favourites and generate traffic at the 'touch of a button'
+Paste this url into your browser and press enter.  After a little while, you should see a success message "HeraclesGenerator generated 30 requests". You can add the result page to browser favourites and generate traffic at the 'touch of a button'.
