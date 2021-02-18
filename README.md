@@ -5,7 +5,7 @@
 
 Heracles is a microservices application that has evolved over the course of 2020/1 to generate telemetry for understanding and demonstrating Microsoft Application Insights. You should be able to deploy the full application, configured, working and geenrating application insights, with a single click (well almost).
 
-> * Indicates content is incomplete in this section
+> `*` Indicates content is incomplete in this section
 
 Introduction
 - [Background](docs/intro/background.md)*
