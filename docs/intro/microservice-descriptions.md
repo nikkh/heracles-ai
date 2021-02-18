@@ -3,17 +3,27 @@
 
 Chania is the main user-facing website of the Heracles Application.  Chania is a dotnet core 3.1 application hosted on Windows App Service.  Chania has its own applications insights instance, and it is this instance that is inspected to get consolidated information from all the microsoervices of the application.  The demo viseos on this site generally use the Chania application insights instance.
 
-The website makes available 12 tiles, each of which represents one of the labours of Heracles. The following sections describe what happens when a user clicks on a tile:
+The website makes available 12 tiles, each of which represents one of the Labours of Heracles. The following sections describe what happens when a user clicks on a tile:
 
 ### Nemean Lion
 
+This is a very simple labour.  It invokes iraklion/nemean which increments a customer counter (nemean-lionTransactions) and returns "Hello World"
+
 ### Lernaean Hydra
+
+This labour invokes iraklion/lernaean and also increments a custom metric (lernaean-hydraTransactions).  It checks if the current time is between 16:00 and 16:30 and if it is, will eturn an exception inidcating that the service is unavailable.  Otherwise it calculates a delay of x, then sleeps the thread for x milliseconds before returning "Hello from Lernaean Hydra".
 
 ### Ceryneian Hind
 
+This labour invokes thessaloniki/ceryneian and also increments a custom metric (ceryneian-hindTransactions). It always throws an exception whenever its called.
+
 ### Erymanthian Boar
 
+This labour invokes iraklion/erymanthian and also increments a custom metric (erymanthian-boarTransactions). It makes a rest call to https://jsonplaceholder.typicode.com and returns the results. This makes jsonplaceholder.typicode.com and external dependency.
+
 ### Augean Stables
+
+This labour invokes iraklion/augean and also increments a custom metric (augean-stablesTransactions). It uploads a blob to container *augeanblobs* in the iraklion storage account.
 
 ### Stymphalian Birds
 
