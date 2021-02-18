@@ -7,7 +7,7 @@ The website makes available 12 tiles, each of which represents one of the Labour
 
 | Labour | Description |
 | --- | ----------- |
-| Nemean Lion | This is a very simple labour.  It invokes iraklion/nemean which increments a customer counter (nemean-lionTransactions) and returns "Hello World" |
+| Nemean Lion | This is a very simple labour.  It invokes iraklion/nemean which increments a customer counter (nemean-lionTransactions) and returns "Hello World". |
 | Lernaean Hydra | This labour invokes iraklion/lernaean and also increments a custom metric (lernaean-hydraTransactions).  It checks if the current time is between 16:00 and 16:30 and if it is, will eturn an exception inidcating that the service is unavailable.  Otherwise it calculates a delay of x, then sleeps the thread for x milliseconds before returning "Hello from Lernaean Hydra". |
 | Ceryneian Hind | This labour invokes thessaloniki/ceryneian and also increments a custom metric (ceryneian-hindTransactions). It always throws an exception whenever its called. |
 | Erymanthian Boar | This labour invokes iraklion/erymanthian and also increments a custom metric (erymanthian-boarTransactions). It makes a rest call to https://jsonplaceholder.typicode.com and returns the results. This makes jsonplaceholder.typicode.com and external dependency. |
@@ -16,7 +16,7 @@ The website makes available 12 tiles, each of which represents one of the Labour
 | Cretan Bull | This labour invokes iraklion/cretan and also increments a custom metric (cretan-bullTransactions). It places a message on a service bus queue which is then processed by the Ioannina Azure Function.  Ioannina uses the iraklion application insights instance - which mean you can test correlation in application map across the same instance but behind a queue. |
 | Mares of Diomedes | This labour involes thessaloniki/diomedes which also increments a custom metric (mares-of-diomedes-bullTransactions).  This labour is very labour intensive.  It creates the database tables if they dont already exist, populates them, then reads from them (allowing you to examine SQL traces) and then runs a provate method called DoArtificalWork.  See the source code for full details, but this does different things according to random facotrs and enables you to test the perfromance analysis and perfromance tracing capabiliites of Application Insights.  Finally, for good measure it also writes a blob to blob storage.|
 | Belt of Hippolyta | This labour invokes iraklion/hyppolyta and also increments a custom metric (belt-of-hippolytaTransactions). IF the time is between 8.00-8.30 hyppolyta sleeps for 39 seconds, otherwise it just returns "Hello World from hippolyta!".  This also provides interesting data for performance tracking. |
-| Cattle of Geryon | This labour invokes chania/geryon.  This is a secure resource and is protected by an Azure Active directory logon.  This is designed to demonstrate the User tracking and analysis features of Application Insights.  See the dedicated page for the [Cattle of Geryon](cattle-of-geryon.md) |
+| Cattle of Geryon | This labour invokes chania/geryon.  This is a secure resource and is protected by an Azure Active directory logon.  This is designed to demonstrate the User tracking and analysis features of Application Insights.  See the dedicated page for the [Cattle of Geryon](cattle-of-geryon.md). |
 | Apples of Hesperides | X |
 | Cerberus | X |
 
