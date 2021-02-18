@@ -30,7 +30,7 @@ Iraklion is the main Apis that provide the functionality for the  Chania web sit
 
 ## Ioaninna
 
-Ioannina is a very simple service that is invoked only when the Cretan Bull labour is executed.  The Cretan operation in the Iraklion api places a message on a service bus queue and messages on this queue trigger an Azure Function within the Ioannina service that processes the message.   * Notice that correlation is maintained even after asynchronous processing via a queue*. Ioannina is interesting in that it shares it's App Insights instance with IRaklion (and uses the Iraklion instance).  Contrast this with Patra below.
+Ioannina is a very simple service that is invoked only when the Cretan Bull labour is executed.  The Cretan operation in the Iraklion api places a message on a service bus queue and messages on this queue trigger an Azure Function within the Ioannina service that processes the message.   *Notice that correlation is maintained even after asynchronous processing via a queue*. Ioannina is interesting in that it shares it's App Insights instance with IRaklion (and uses the Iraklion instance).  Contrast this with Patra below.
 
 ## Patra
 
