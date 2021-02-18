@@ -16,8 +16,8 @@ Introduction
 
 Data Generation
 - [Synthetic Transactions](docs/gen/synthetic-transactions.md)*
-- [User Traffic](docs/gen/data-gen-user-traffic.md)*
-- [Availability Tests](docs/gen/data-gen-availability-tests.md)*
+- [User Traffic](docs/gen/user-traffic.md)*
+- [Availability Tests](docs/gen/availability-tests.md)*
 
 Exploring Application Insights
 - [Dashboards](docs/demo/ai-dashboards.md)
