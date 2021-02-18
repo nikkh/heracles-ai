@@ -20,7 +20,7 @@ Exploring Application Insights
 - [Smart Detection](demo/ai-smart-detection.md)
 - [Live Metrics](demo/ai-live-metrics.md)
 - [Failures](demo/ai-failures.md)
-- [Performance](demo/ai-perfromance.md)
+- [Performance](demo/ai-performance.md)
 - [Availability](demo/ai-availability.md)
 - [Users](demo/ai-users.md)
 - [Metrics](demo/ai-metrics.md)
