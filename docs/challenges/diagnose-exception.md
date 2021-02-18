@@ -14,6 +14,6 @@ In the menu for chania-web application insights, choose Exceptions.
 1. Which Labour of Heracles generated the most exceptions during our test?
 1. Which line of code is at fault and causing these exceptions?
 
-[Check your answers...](diagnose-exception-answer.md)
+[Check your answers...](answers/diagnose-exception-answer.md)
 
  
