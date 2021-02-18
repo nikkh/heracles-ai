@@ -15,8 +15,8 @@ Introduction
 - [Deploying Heracles](docs/intro/deploying-heracles.md)
 
 Data Generation
-- [Synthetic Transactions](docs/gen/synthetic-transactions.md)*
-- [User Traffic](docs/gen/user-traffic.md)*
+- [Synthetic Transactions](docs/gen/synthetic-transactions.md)
+- [User Traffic](docs/gen/user-traffic.md)
 - [Availability Tests](docs/gen/availability-tests.md)*
 
 Exploring Application Insights
