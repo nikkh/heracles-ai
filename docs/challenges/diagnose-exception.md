@@ -2,9 +2,9 @@
 
 This activity is designed to help you find your way around Application Insights.  Imagine we have just made a deployment of our application to a staging site, and we want to direct a small amount of user traffic to that site so we can check the behaviour of the release before rolling it out more widely.
  
-Well actually, we have just deployed our application – let’s have a look at how its behaving.  First, we need to make sure we have some traffic to our site.  In order to do this, you can use the Zodiac Generator function app to generate some requests.
- 
-When you issue a GET request from your browser to the function app url, the generator function generate NumberOfCalls transactions on your chania-web site.  You can change number of calls to suit your needs in the url parameter.
+Well actually, we have just deployed our application – let’s have a look at how its behaving.  First, we need to make sure we have some traffic to our site.  In order to do this, you can use the Heracles Generator function app to generate some requests. When you issue a GET request from your browser to the function app url, the generator function generate NumberOfCalls transactions on your chania-web site.  You can change number of calls to suit your needs in the url parameter.
+
+[Trigger Heracles to generate requests](heracles-generator.md)
 
 So let’s compose this url:
 1.	First get the function app url from the Overview page of the function app. It will be something like `https://<your-alias>herecles-gen-func.azurewebsites.net/`
