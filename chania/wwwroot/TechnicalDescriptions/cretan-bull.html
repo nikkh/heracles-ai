@@ -1,1 +1,1 @@
-﻿<p>Calls the iraklion API which posts a message to the ioannina Service Bus queue. The message is then consumed by the ioannina-func Function</p>
+﻿<p>This labour invokes iraklion/cretan and also increments a custom metric (cretan-bullTransactions). It places a message on a service bus queue which is then processed by the Ioannina Azure Function.  Ioannina uses the iraklion application insights instance - which mean you can test correlation in application map across the same instance but behind a queue.</p>

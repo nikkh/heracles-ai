@@ -39,8 +39,8 @@ namespace Iraklion.Controllers
             if (cpumax.ToUpper() == "TRUE")
             {
                 _logger.LogWarning($"CPU max is requested");
-                long nthPrime = FindPrimeNumber(10000); //set higher value for more time
-                return $"cerberus calculated the nthPrime(10000) and the result was {nthPrime}";
+                long nthPrime = FindPrimeNumber(100000); //set higher value for more time
+                return $"cerberus calculated the nthPrime(100000) and the result was {nthPrime}";
 
             }
 
