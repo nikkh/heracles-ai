@@ -65,7 +65,7 @@ az functionapp create \
  --functions-version 3 \
  --app-insights $iraklionWebAppName \
  --os-type Linux \
-   --runtime "DOTNETCORE|3.1" \
+ --runtime dotnet \
  --app-insights-key $iraklionAIKey >> $output_blob
 echo "</p>" >> $output_blob
  

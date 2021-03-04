@@ -60,7 +60,7 @@ az functionapp create \
  --consumption-plan-location $HERACLES_LOCATION \
  --resource-group $resourceGroupName \
   --os-type Linux \
-    --runtime "DOTNETCORE|3.1" \
+ --runtime dotnet \
  --functions-version 3 >> $output_blob
 echo "<p>Function App: $functionAppName</p>" >> $output_blob
 
