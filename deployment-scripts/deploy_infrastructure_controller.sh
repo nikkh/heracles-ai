@@ -17,12 +17,12 @@ else
 fi
 
 export DB_ADMIN_PASSWORD="He_r@c11es$RANDOM"
+deployment-scripts/deploy_heracles_infra.sh
 deployment-scripts/deploy_chania_infra.sh
 deployment-scripts/deploy_thessaloniki_infra.sh
 deployment-scripts/deploy_iraklion_infra.sh
 deployment-scripts/deploy_patra_infra.sh
 deployment-scripts/deploy_ioannina_infra.sh
-deployment-scripts/deploy_heracles_infra.sh
 
 echo '</body></html>' >> $output_blob
 

@@ -6,7 +6,7 @@ on:
         description: 'Thessaloniki Alias'     
         required: true
 env:
-   HERACLES_PAT: ${{ secrets.HERACLES_PAT }}
+   HERACLES_PAT: ${{ secrets.GITHUB_TOKEN }}
    THESSALONIKI_ALIAS: ${{ github.event.inputs.thessaloniki_alias }}  
 jobs:
   job1:
