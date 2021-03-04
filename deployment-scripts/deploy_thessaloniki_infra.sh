@@ -63,12 +63,33 @@ echo "<p>Storage Account: $storageAccountName</p>" >> $output_blob
 storageConnectionString=$(az storage account show-connection-string -n $storageAccountName -g $resourceGroupName --query connectionString -o tsv)
 echo "<p>Storage Account Connection String: $storageConnectionString</p>" >> $output_blob
 
-echo "Creating app service $webAppName in group $resourceGroupName "
- az group deployment create -g $resourceGroupName \
-    --template-file thessaloniki/thessaloniki.json  \
-    --parameters webAppName=$webAppName hostingPlanName=$hostingPlanName appInsightsLocation=$HERACLES_LOCATION \
-        sku="${appservice_webapp_sku}" databaseConnectionString="{$databaseConnectionString}" >> $output_blob
+
+echo "Creating app service hosting plan $hostingPlanName in group $resourceGroupName"
+echo "<h1>Hosting Plan: $hostingPlanName</h1>" >> $output_blob
+az appservice plan create -g $resourceGroupName --name $hostingPlanName --location $HERACLES_LOCATION --number-of-workers 1 --is-linux --sku S1 >> $output_blob
+
+echo "Creating app insights component $webAppName in group $resourceGroupName"
+echo "<h1>Application Insights: $webAppName</h1>" >> $output_blob
+az monitor app-insights component create --app $webAppName --location $HERACLES_LOCATION --kind web -g $resourceGroupName --application-type web >> $output_blob
+thessalonikiAIKey=$(az monitor app-insights component show --app $webAppName -g $resourceGroupName --query instrumentationKey -o tsv)
+
+echo "Creating app service for web site $webAppName in group $resourceGroupName"
+echo "<h1>App Service (Web App): $webAppName</h1>" >> $output_blob
+
+az webapp create \
+  --name $webAppName \
+  --plan $hostingPlanName \
+  --resource-group $resourceGroupName \
+   >> $output_blob
+
 echo "<p>App Service (Web App): $webAppName</p>" >> $output_blob
+
+#echo "Creating app service $webAppName in group $resourceGroupName "
+# az group deployment create -g $resourceGroupName \
+#    --template-file thessaloniki/thessaloniki.json  \
+#    --parameters webAppName=$webAppName hostingPlanName=$hostingPlanName appInsightsLocation=$HERACLES_LOCATION \
+#        sku="${appservice_webapp_sku}" databaseConnectionString="{$databaseConnectionString}" >> $output_blob
+#echo "<p>App Service (Web App): $webAppName</p>" >> $output_blob
 
 
 # Build SQL connecion string
