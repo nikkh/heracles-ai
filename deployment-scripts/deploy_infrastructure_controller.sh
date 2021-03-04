@@ -8,6 +8,15 @@ resourcesLink="https://portal.azure.com/#blade/HubsExtension/BrowseResourcesWith
 echo '<a href="'$resourcesLink'">Click here to access your azure resources</a>' >> $output_blob
 echo '<p></p>' >>$output_blob
 
+if [ "$HERACLES_SINGLE_RG_NAME" ]; then 
+ echo "Deployment will be to a single resource group: $HERACLES_SINGLE_RG_NAME"  >> $output_blob
+ echo "Deployment will be to a single resource group: $HERACLES_SINGLE_RG_NAME"  
+else
+ echo "Deployment will be to multiple resource groups"  >> $output_blob
+ echo "Deployment will be to multiple resource groups"  
+fi
+
+export DB_ADMIN_PASSWORD="Heracles$RANDOM"
 deployment-scripts/deploy_chania_infra.sh
 deployment-scripts/deploy_thessaloniki_infra.sh
 deployment-scripts/deploy_iraklion_infra.sh

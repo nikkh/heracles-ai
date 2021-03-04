@@ -22,7 +22,13 @@ echo
 applicationName="${THESSALONIKI_ALIAS}"
 webAppName="${applicationName}-api"
 hostingPlanName="${applicationName}-plan"
-resourceGroupName="${applicationName}-rg"
+if [ "$HERACLES_SINGLE_RG_NAME" ]; then 
+ echo "Deployment will be to a single resource group: $HERACLES_SINGLE_RG_NAME" 
+ resourceGroupName="$HERACLES_SINGLE_RG_NAME" 
+else
+ echo "Deployment will be to multiple resource groups" 
+ resourceGroupName="${applicationName}-rg" 
+fi
 databaseConnectionString="Server=tcp:$dbServerName.database.windows.net;Database=$dbName;User ID=$DB_ADMIN_USER;Password=$DB_ADMIN_PASSWORD;Encrypt=True;Connection Timeout=30;"
 dbServerName="${CHANIA_ALIAS}-db-server"
 dbName="${CHANIA_ALIAS}-web-db"

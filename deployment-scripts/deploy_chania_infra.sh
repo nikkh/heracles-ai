@@ -25,9 +25,17 @@ webAppName="${applicationName}-web"
 hostingPlanName="${applicationName}-plan"
 dbServerName="${applicationName}-db-server"
 dbName="${applicationName}-web-db"
-resourceGroupName="${applicationName}-rg"
+if [ "$HERACLES_SINGLE_RG_NAME" ]; then 
+ echo "Deployment will be to a single resource group: $HERACLES_SINGLE_RG_NAME" 
+ resourceGroupName="$HERACLES_SINGLE_RG_NAME" 
+else
+ echo "Deployment will be to multiple resource groups" 
+ resourceGroupName="${applicationName}-rg" 
+fi
+
 iraklionBaseUrl="https://${IRAKLION_ALIAS}-api.azurewebsites.net/"
 thessalonikiBaseUrl="https://${THESSALONIKI_ALIAS}-api.azurewebsites.net/"
+
 
 echo ---Derived Variables
 echo "Application Name: $applicationName"

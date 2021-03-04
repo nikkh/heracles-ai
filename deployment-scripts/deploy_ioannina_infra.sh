@@ -12,7 +12,13 @@ echo
 # set local variables
 # Derive as many variables as possible
 applicationName="${IOANNINA_ALIAS}"
-resourceGroupName="${applicationName}-rg"
+if [ "$HERACLES_SINGLE_RG_NAME" ]; then 
+ echo "Deployment will be to a single resource group: $HERACLES_SINGLE_RG_NAME" 
+ resourceGroupName="$HERACLES_SINGLE_RG_NAME" 
+else
+ echo "Deployment will be to multiple resource groups" 
+ resourceGroupName="${applicationName}-rg" 
+fi
 storageAccountName=${applicationName}$RANDOM
 functionAppName="${applicationName}-func"
 

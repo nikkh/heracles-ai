@@ -23,7 +23,13 @@ echo
 applicationName="${IRAKLION_ALIAS}"
 webAppName="${applicationName}-api"
 hostingPlanName="${applicationName}-plan"
-resourceGroupName="${applicationName}-rg"
+if [ "$HERACLES_SINGLE_RG_NAME" ]; then 
+ echo "Deployment will be to a single resource group: $HERACLES_SINGLE_RG_NAME" 
+ resourceGroupName="$HERACLES_SINGLE_RG_NAME" 
+else
+ echo "Deployment will be to multiple resource groups" 
+ resourceGroupName="${applicationName}-rg" 
+fi
 acrRegistryName="${IRAKLION_ALIAS}acr"
 serviceBusNamespace="${applicationName}sb"
 storageAccountName=${applicationName}$RANDOM

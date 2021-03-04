@@ -19,21 +19,24 @@ on:
         description: 'debug output?'     
         required: true
         default: 'FALSE'
+      singleResourceGroupName:
+        description: 'ResourceGroupName'     
+        required: false
+        default: ''
       pendingDelete:
         description: 'pending delete?'     
         required: true
-        default: 'true'
+        default: 'false'
 env:
-   HERACLES_PAT: ${{ secrets.HERACLES_PAT }}
-
-   DB_ADMIN_PASSWORD: ${{ secrets.DB_ADMIN_PASSWORD }}
-   DB_ADMIN_USER: nick
+   HERACLES_PAT: ${{ secrets.GITHUB_TOKEN }}
+   DB_ADMIN_USER: heracles_db_admin
    AAD_DOMAIN: xekina.onmicrosoft.com
    AAD_TENANTID: 3bc03625-3a0a-48c5-8aa5-12f22e401fff
    AAD_CLIENTID: ccee7608-940c-42d9-ba86-a2845ef3a808
    
    HERACLES_LOCATION: ${{ github.event.inputs.location }}
    HERACLES_INSTANCE: ${{ github.event.inputs.instance }}
+   HERACLES_SINGLE_RG_NAME: ${{ github.event.inputs.singleResourceGroupName }}
    OUTPUT_LOG_NAME: "deployment-log.html"
    HERACLES_OUTPUT_LOGGING: ${{ github.event.inputs.logOutput }}
    PENDING_DELETE: ${{ github.event.inputs.pendingDelete }}
