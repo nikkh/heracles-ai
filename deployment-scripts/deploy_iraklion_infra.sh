@@ -89,7 +89,7 @@ az webapp create \
   --resource-group $resourceGroupName \
   --docker-registry-server-user $acrUser \
   --docker-registry-server-password $acrPassword \
-  --runtime"DOTNETCORE|3.1" \
+  --runtime "DOTNETCORE|3.1" \
    >> $output_blob
 
 echo "<p>App Service (Web App): $webAppName</p>" >> $output_blob
