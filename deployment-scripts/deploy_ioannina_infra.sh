@@ -12,9 +12,14 @@ echo
 # set local variables
 # Derive as many variables as possible
 applicationName="${IOANNINA_ALIAS}"
+echo "IRAKLION_ALIAS: $IRAKLION_ALIAS"
+iraklionApplicationName="${IRAKLION_ALIAS}"
+iraklionResourceGroupName="${iraklionApplicationName}-rg"
+iraklionServiceBusNamespace="${iraklionApplicationName}sb"
 if [ "$HERACLES_SINGLE_RG_NAME" ]; then 
  echo "Deployment will be to a single resource group: $HERACLES_SINGLE_RG_NAME" 
  resourceGroupName="$HERACLES_SINGLE_RG_NAME" 
+ iraklionResourceGroupName="$HERACLES_SINGLE_RG_NAME" 
 else
  echo "Deployment will be to multiple resource groups" 
  resourceGroupName="${applicationName}-rg" 
@@ -22,10 +27,7 @@ fi
 storageAccountName=${applicationName}$RANDOM
 functionAppName="${applicationName}-func"
 
-echo "IRAKLION_ALIAS: $IRAKLION_ALIAS"
-iraklionApplicationName="${IRAKLION_ALIAS}"
-iraklionResourceGroupName="${iraklionApplicationName}-rg"
-iraklionServiceBusNamespace="${iraklionApplicationName}sb"
+
 iraklionServiceBusConnectionString=$(az servicebus namespace authorization-rule keys list -g $iraklionResourceGroupName --namespace-name $iraklionServiceBusNamespace -n RootManageSharedAccessKey --query 'primaryConnectionString' -o tsv)
 
 # iraklion application insights info
