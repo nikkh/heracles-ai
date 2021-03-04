@@ -85,6 +85,7 @@
                 "Tier": "[first(skip(split(parameters('sku'), ' '), 1))]",
                 "Name": "[first(split(parameters('sku'), ' '))]"
             },
+            "kind": "linux",
             "name": "[parameters('hostingPlanName')]",
             "apiVersion": "2015-08-01",
             "location": "[resourceGroup().location]",
@@ -92,7 +93,7 @@
                 "name": "[parameters('hostingPlanName')]",
                 "workerSizeId": "0",
                 "reserved": false,
-                "numberOfWorkers": "1",
+                "numberOfWorkers": 1,
                 "hostingEnvironment": ""
             }
         },
