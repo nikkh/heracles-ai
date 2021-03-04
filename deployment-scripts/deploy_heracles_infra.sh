@@ -67,7 +67,7 @@ az functionapp create \
   --functions-version 3 \
   --docker-registry-server-user $acrUser \
   --docker-registry-server-password $acrPassword \
-  --runtime "DOTNETCORE|3.1" >> $output_blob
+  --runtime dotnet -o none
 echo "<p>Function App: $functionAppName</p>" >> $output_blob
 
 # We'll use this storage account to hold external configuration for users and sessions in user simulation processing
