@@ -70,6 +70,7 @@
                 "Tier": "[first(skip(split(parameters('sku'), ' '), 1))]",
                 "Name": "[first(split(parameters('sku'), ' '))]"
             },
+             "kind": "linux",
             "name": "[parameters('hostingPlanName')]",
             "apiVersion": "2015-08-01",
             "location": "[resourceGroup().location]",
