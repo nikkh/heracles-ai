@@ -79,6 +79,7 @@ az webapp create \
   --name $webAppName \
   --plan $hostingPlanName \
   --resource-group $resourceGroupName \
+  --runtime  "DOTNETCORE|3.1" \
    >> $output_blob
 
 echo "<p>App Service (Web App): $webAppName</p>" >> $output_blob
