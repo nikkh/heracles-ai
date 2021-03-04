@@ -16,7 +16,7 @@ else
  echo "Deployment will be to multiple resource groups"  
 fi
 
-export DB_ADMIN_PASSWORD="Heracles$RANDOM"
+export DB_ADMIN_PASSWORD="He_r@c11es$RANDOM"
 deployment-scripts/deploy_chania_infra.sh
 deployment-scripts/deploy_thessaloniki_infra.sh
 deployment-scripts/deploy_iraklion_infra.sh
