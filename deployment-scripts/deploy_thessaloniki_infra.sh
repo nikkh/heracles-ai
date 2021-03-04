@@ -13,13 +13,13 @@ echo
 
 # set local variables
 appservice_webapp_sku="S1 Standard"
-
 echo ---Local Variables
 echo "App service Sku: $appservice_webapp_sku"
 echo 
 
 # Derive as many variables as possible
 applicationName="${THESSALONIKI_ALIAS}"
+dbName="${CHANIA_ALIAS}-web-db"
 webAppName="${applicationName}-api"
 hostingPlanName="${applicationName}-plan"
 if [ "$HERACLES_SINGLE_RG_NAME" ]; then 
@@ -84,14 +84,6 @@ az webapp create \
    >> $output_blob
 
 echo "<p>App Service (Web App): $webAppName</p>" >> $output_blob
-
-#echo "Creating app service $webAppName in group $resourceGroupName "
-# az group deployment create -g $resourceGroupName \
-#    --template-file thessaloniki/thessaloniki.json  \
-#    --parameters webAppName=$webAppName hostingPlanName=$hostingPlanName appInsightsLocation=$HERACLES_LOCATION \
-#        sku="${appservice_webapp_sku}" databaseConnectionString="{$databaseConnectionString}" >> $output_blob
-#echo "<p>App Service (Web App): $webAppName</p>" >> $output_blob
-
 
 # Build SQL connecion string
 xbaseDbConnectionString=$(az sql db show-connection-string -c ado.net -s $dbServerName -n $dbName -o tsv)

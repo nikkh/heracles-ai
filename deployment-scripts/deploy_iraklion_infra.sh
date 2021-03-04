@@ -30,7 +30,7 @@ else
  echo "Deployment will be to multiple resource groups" 
  resourceGroupName="${applicationName}-rg" 
 fi
-acrRegistryName="${IRAKLION_ALIAS}acr"
+acrRegistryName="${HERACLES_ALIAS}acr"
 serviceBusNamespace="${applicationName}sb"
 storageAccountName=${applicationName}$RANDOM
 
@@ -91,10 +91,6 @@ az webapp create \
   --docker-registry-server-password $acrPassword \
    >> $output_blob
 
-# az group deployment create -g $resourceGroupName \
-#    --template-file iraklion/iraklion.json  \
-#    --parameters webAppName=$webAppName hostingPlanName=$hostingPlanName appInsightsLocation=$HERACLES_LOCATION \
-#        sku="${appservice_webapp_sku}" registryName=$acrRegistryName imageName="$imageName" registryLocation="$HERACLES_LOCATION" registrySku="$acrSku" -o none
 echo "<p>App Service (Web App): $webAppName</p>" >> $output_blob
 iraklionAIKey=$(az monitor app-insights component show --app $webAppName -g $resourceGroupName --query instrumentationKey -o tsv)
 
