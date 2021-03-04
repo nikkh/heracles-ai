@@ -64,6 +64,7 @@ az functionapp create \
  --resource-group $resourceGroupName \
  --functions-version 3 \
  --app-insights $iraklionWebAppName \
+ --os-type Linux \
  --app-insights-key $iraklionAIKey >> $output_blob
 echo "</p>" >> $output_blob
  

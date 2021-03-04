@@ -59,6 +59,7 @@ az functionapp create \
  --storage-account $storageAccountName \
  --consumption-plan-location $HERACLES_LOCATION \
  --resource-group $resourceGroupName \
+  --os-type Linux \
  --functions-version 3 >> $output_blob
 echo "<p>Function App: $functionAppName</p>" >> $output_blob
 
