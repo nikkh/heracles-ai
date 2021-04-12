@@ -6,5 +6,7 @@ Dashboards are a focused and organized view of your cloud resources in the Azure
 
 There is a short (2 minute) video that shows dashboards in action:
 
-[![link to application map video](../images/dashboard-demo.jpg)](https://hercheracles29790.blob.core.windows.net/media/Heracles-Demos-Dashboard.mp4)
+[![link to application map video](../images/dashboard-demo.jpg)](https://milsonmedia.blob.core.windows.net/heraclesmedia/Heracles-Demos-Dashboard.mp4)
+
+
 
