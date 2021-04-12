@@ -6,6 +6,6 @@ Application Map helps you spot performance bottlenecks or failure hotspots acros
 
 There is a short (6 minute) video that shows the application map in action:
 
-[![link to application map video](../images/app-map-demo.jpg)](https://hercheracles29790.blob.core.windows.net/media/Heracles-Demos-App-Map.mp4)
+[![link to application map video](../images/app-map-demo.jpg)](https://milsonmedia.blob.core.windows.net/heraclesmedia/Heracles-Demos-App-Map.mp4)
 
 
