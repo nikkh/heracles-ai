@@ -18,4 +18,4 @@ With Live Metrics Stream, you can:
 
 There is a short (4 minute) video that shows live metrics in action:
 
-[![link to application map video](../images/live-metrics-demo.jpg)](https://hercheracles29790.blob.core.windows.net/media/Heracles-Demos-Live-Metrics.mp4)
+[![link to application map video](../images/live-metrics-demo.jpg)](https://milsonmedia.blob.core.windows.net/heraclesmedia/Heracles-Demos-Live-Metrics.mp4)
