@@ -12,5 +12,5 @@ Each type brings a unique value in monitoring application health, diagnostics an
 
 There is a short (7 minute) video that shows metrics in action:
 
-[![link to metrics video](../images/metrics-demo.jpg)](https://hercheracles29790.blob.core.windows.net/media/Heracles-Demos-Metrics.mp4)
+[![link to metrics video](../images/metrics-demo.jpg)](https://milsonmedia.blob.core.windows.net/heraclesmedia/Heracles-Demos-Metrics.mp4)
 
