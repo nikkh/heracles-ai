@@ -8,4 +8,4 @@ You can access the detections issued by Smart Detection both from the emails you
 
 There is a short (4 minute) video that shows smart detection map in action:
 
-[![link to application map video](../images/smart-detections-demo.jpg)](https://hercheracles29790.blob.core.windows.net/media/Heracles-Demos-Smart-Detection.mp4)
+[![link to application map video](../images/smart-detections-demo.jpg)](https://milsonmedia.blob.core.windows.net/heraclesmedia/Heracles-Demos-Smart-Detection.mp4)
