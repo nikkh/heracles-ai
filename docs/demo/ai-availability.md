@@ -12,4 +12,4 @@ You can set up availability tests for any HTTP or HTTPS endpoint that is accessi
 
 There is a short (6 minute) video that shows failure diagnosis in action:
 
-[![link to failure diagnosis video](../images/availability-demo-screenshot.jpg)](https://hercheracles29790.blob.core.windows.net/media/Heracles-Demos-Availability.mp4)
+[![link to failure diagnosis video](../images/availability-demo-screenshot.jpg)](https://milsonmedia.blob.core.windows.net/heraclesmedia/Heracles-Demos-Availability.mp4)
